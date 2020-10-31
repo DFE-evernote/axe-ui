@@ -1,2 +1,2 @@
 # xingorg1-ui
-自建vue3组件库
+基于vue@3.x的一套PC端前端UI组件库
