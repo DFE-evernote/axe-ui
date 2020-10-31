@@ -1,0 +1,43 @@
+{
+  "name": "xingorg1-ui",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.8",
+    "@vue/cli-plugin-eslint": "^4.5.8",
+    "@vue/cli-plugin-unit-mocha": "^4.5.8",
+    "@vue/cli-service": "^4.5.8",
+    "@vue/compiler-sfc": "^3.0.2",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^2.0.0-beta.7",
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^7.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "sass": "^1.28.0",
+    "sass-loader": "^8.0.2"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
