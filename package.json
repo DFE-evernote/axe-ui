@@ -2,10 +2,11 @@
   "name": "xingorg1-ui",
   "version": "1.0.0",
   "private": true,
+  "main": "./dist/xingorg1.umd.min.js",
   "scripts": {
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name xingorg1 ./packages/index.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "docs:dev": "vitepress dev docs",
