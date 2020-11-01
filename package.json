@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name xingorg1 ./packages/index.js",
+    "build": "vue-cli-service build --target lib --name xingorg1 ./packages/index.js && vue-cli-service build --xingorg1 --no-clean",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "docs:dev": "vitepress dev docs",
