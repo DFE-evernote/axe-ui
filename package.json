@@ -1,6 +1,6 @@
 {
   "name": "xingorg1-ui",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "description": "A Component Library for Vue3.js.",
   "private": true,
   "main": "./dist/xingorg1.umd.min.js",
@@ -8,8 +8,8 @@
     "dist",
     "packages",
     "README",
-  	"CHANGELOG",
-  	"LICENSE"
+    "CHANGELOG",
+    "LICENSE"
   ],
   "scripts": {
     "dev": "npm run serve",
