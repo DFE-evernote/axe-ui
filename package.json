@@ -1,8 +1,16 @@
 {
   "name": "xingorg1-ui",
   "version": "1.0.0",
+  "description": "A Component Library for Vue3.js.",
   "private": true,
   "main": "./dist/xingorg1.umd.min.js",
+  "files": [
+    "dist",
+    "packages",
+    "README",
+  	"CHANGELOG",
+  	"LICENSE"
+  ],
   "scripts": {
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
@@ -12,6 +20,21 @@
     "lint": "vue-cli-service lint",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xingorg1/xingorg1-ui.git"
+  },
+  "homepage": "",
+  "keywords": [
+    "xingorg1",
+    "vue3",
+    "components"
+  ],
+  "author": "guojufeng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xingorg1/xingorg1-ui/issues"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -54,5 +77,18 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "engines": {
+    "node": ">=8.9.1",
+    "npm": ">=5.5.1"
+  },
+  "browserslist": [
+    "last 3 Chrome versions",
+    "last 3 Firefox versions",
+    "Safari >= 10",
+    "Explorer >= 11",
+    "Edge >= 12",
+    "iOS >= 10",
+    "Android >= 6"
+  ]
 }
