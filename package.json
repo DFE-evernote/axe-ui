@@ -13,12 +13,14 @@
   "scripts": {
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name xingorg1 ./packages/index.js && vue-cli-service build --xingorg1 --no-clean",
+    "build": "vue-cli-service build",
+    "dist": "vue-cli-service build --target lib --name xingorg1 ./packages/index.js && vue-cli-service build --xingorg1 --no-clean",
     "test:unit": "vue-cli-service test:unit",
     "test:ui": "karma start",
     "lint": "vue-cli-service lint",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs"
+    "docs:build": "vitepress build docs",
+    "pub": "node build/git-release.sh && node build/release.sh"
   },
   "repository": {
     "type": "git",
@@ -66,6 +68,7 @@
     "prettier": "^1.19.1",
     "sass": "^1.28.0",
     "sass-loader": "^8.0.2",
+    "select-version-cli": "0.0.2",
     "vitepress": "^0.7.1"
   },
   "gitHooks": {
