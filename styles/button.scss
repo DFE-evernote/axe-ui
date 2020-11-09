@@ -18,3 +18,23 @@
  *     ````':.          ':::::::::'                  ::::..
  *                        '.:::::'                    ':'````..
  */
+
+@import './base.scss';
+
+@include Block(button) {
+  padding: 7px 15px;
+  border-radius: $borderRadius + px;
+  font-size: $fontSize;
+  line-height: 16px;
+  cursor: pointer;
+  color: $white;
+  border: 1px solid  $primary;
+  background:  $primary;
+  // @include Modifier(primary) {
+    // .gjf-button-primary {
+    //   border: 1px solid  $primary;
+    //   background:  $primary;  
+    // }
+  // }
+
+}

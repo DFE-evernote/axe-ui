@@ -23,4 +23,18 @@
  * 
  *            佛祖保佑       永不宕机     永无BUG
  */
-
+@import '../common/var';
+/* BEM 规范 */
+@mixin Block($name) {
+  $namescope: $name !global;
+  .gjf-#{$name} {
+    @content;
+  }
+}
+@mixin Modifier($modifier){
+  .gjf-#{$namescope}-#{$modifier} {
+    // .gjf-button-primary
+    border: 1px solid $primary;
+    background: $primary;  
+  }
+}

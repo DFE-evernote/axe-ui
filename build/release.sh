@@ -1,10 +1,3 @@
-###
- # @Author: @Guojufeng
- # @Date: 2020-11-03 22:26:56
- # @LastEditors: @Guojufeng
- # @LastEditTime: 2020-11-03 23:03:22
- # @FilePath: /Users/guojufeng/Documents/GitHub/xingorg1-ui/build/release.sh
-### 
 #!/usr/bin/env sh
 set -e
 
