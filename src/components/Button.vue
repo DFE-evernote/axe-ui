@@ -1,14 +1,11 @@
-<!--
- * @Author: @Guojufeng
- * @Date: 2020-11-01 00:12:31
- * @LastEditors: @Guojufeng
- * @LastEditTime: 2020-11-01 12:28:08
- * @FilePath: /Users/guojufeng/Documents/GitHub/xingorg1-ui/src/components/Button.vue
--->
 <template>
-  <div class="demo-button">
-    demo页面
-    <gjf-button />
+  <div class="area demo-button">
+    <h3>button-demo</h3>
+    <gjf-button type="primary">小石头的第一个组件</gjf-button>
+    <gjf-button type="success">success</gjf-button>
+    <gjf-button type="info">info</gjf-button>
+    <gjf-button type="warning">warning</gjf-button>
+    <gjf-button type="danger">danger</gjf-button>
   </div>
 </template>
 
@@ -17,3 +14,11 @@ export default {
   name: 'Button'
 }
 </script>
+
+<style lang="scss">
+.demo-button {
+  .gjf-button:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+</style>

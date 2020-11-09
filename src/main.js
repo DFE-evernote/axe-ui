@@ -1,13 +1,6 @@
-/*
- * @Author: @Guojufeng
- * @Date: 2020-11-01 00:12:31
- * @LastEditors: @Guojufeng
- * @LastEditTime: 2020-11-01 12:56:20
- * @FilePath: /Users/guojufeng/Documents/GitHub/xingorg1-ui/src/main.js
- */
 import { createApp } from 'vue'
 import App from './App.vue'
-
+import './index.css'
 // 全局导入
 import xingorg1UI from 'packages/index'
 console.log(xingorg1UI)
