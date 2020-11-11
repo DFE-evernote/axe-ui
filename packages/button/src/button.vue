@@ -1,5 +1,5 @@
 <template>
-  <button class="gjf-button">
+  <button :class="classify">
     <!-- 类名设置统一为“gjf-”的前缀 -->
     <span>
       <slot></slot>
@@ -8,13 +8,14 @@
 </template>
 
 <script>
-const typeArray = ['primary', 'success', 'info', 'warning', 'danger']
+import { computed } from 'vue'
+const typeArray = ['default', 'primary', 'success', 'info', 'warning', 'danger']
 export default {
   name: 'GjfButton', // 重点是name命名，用于注册组件时使用name属性，也用于使用组件时标签名带有“gjf-”的前缀，如<gjf-button>
   props: {
     type: {
       type: String,
-      default: 'primary',
+      default: 'default',
       validator(type) {
         if (!typeArray.includes(type)) {
           throw Error(
@@ -25,6 +26,12 @@ export default {
         }
         return true
       }
+    }
+  },
+  setup(props) {
+    const classify = computed(() => ['gjf-button', `gjf-button-${props.type}`])
+    return {
+      classify
     }
   }
 }

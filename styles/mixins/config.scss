@@ -1,0 +1,5 @@
+$name-space: 'gjf';
+$separator: '-';
+$modifier-separator: '--';
+$state-prefix: 'is-';
+$name-prefix: '.' + $name-space + $separator // '.gjf-'
