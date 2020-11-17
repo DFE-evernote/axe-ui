@@ -1,6 +1,5 @@
 <template>
   <div class="area demo-button">
-    <h3>button-demo</h3>
     <div class="btns">
       <axe-button class="xiao-shi-tou">小石头的第一个组件</axe-button>
       <axe-button type="primary">小石头的第一个组件</axe-button>

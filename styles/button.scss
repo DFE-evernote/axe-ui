@@ -23,7 +23,7 @@
 @import './mixins/mixins';
 
 @include Block(button) {
-  padding: 7px 15px;
+  padding: $padding-vertical + px $padding-standard + px;
   border-radius: $border-radius + px;
   font-size: $font-size;
   line-height: 16px;
