@@ -23,15 +23,39 @@
  *        ┗┻┛　┗┻┛
  */
 
- /* color */
- $primary: #409EFF;
- $white: #FFFFFF;
- $black: #000000;
- $success: #67C23A;
- $warning: #E6A23C;
- $danger: #F56C6C;
- $info: #909399;
+/* color */
+$white: #FFFFFF;
+$black: #000000;
+$primary: #409EFF;
+$success: #67C23A;
+$warning: #E6A23C;
+$danger: #F56C6C;
+$info: #909399;
+$primary-active: #3291f0;
+$success-active: #57ae2b;
+$warning-active: #c68628;
+$danger-active: #dc5757;
+$info-active: #808388;
+
+$border-color-gray: #dcdfe6;
+$font-color-gray: #606266;
+
+/* common map */
+$color-list: (
+  primary: $primary,
+  success: $success,
+  warning: $warning,
+  danger: $danger,
+  info: $info
+);
+$color-list-active: (
+  primary: $primary-active,
+  success: $success-active,
+  warning: $warning-active,
+  danger: $danger-active,
+  info: $info-active
+);
 
 /* size */
-$fontSize: 14px;
-$borderRadius: 4;
+$font-size: 14px;
+$border-radius: 4;

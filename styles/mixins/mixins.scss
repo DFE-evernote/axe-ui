@@ -24,17 +24,37 @@
  *            佛祖保佑       永不宕机     永无BUG
  */
 @import '../common/var';
+@import './config.scss';
 /* BEM 规范 */
+
+// 样式作用域
 @mixin Block($name) {
-  $namescope: $name !global;
-  .gjf-#{$name} {
+  $blockName: $name-prefix + $name !global; // 全局变量
+  #{$blockName} {
+    // .gjf-button
     @content;
   }
 }
+
+// 修饰符
 @mixin Modifier($modifier){
-  .gjf-#{$namescope}-#{$modifier} {
-    // .gjf-button-primary
-    border: 1px solid $primary;
-    background: $primary;  
+  // $activeModifier: $modifier + '-active';
+  @each $key,$val in $modifier {
+    @at-root {
+      &#{$blockName + $separator + $key} {
+        // &.gjf-button-primary
+        color: $white;
+        background: $val;
+        border: 1px solid $val;
+        @content;
+        // &:focus,
+        // &:hover{
+        //   @each $keyAct,$valAct in $activeModifier {
+        //     background: $valAct;
+        //     border: 1px solid $valAct;
+        //   }
+        // }
+      }
+    }
   }
 }

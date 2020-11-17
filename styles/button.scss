@@ -19,22 +19,24 @@
  *                        '.:::::'                    ':'````..
  */
 
-@import './base.scss';
+@import './base';
+@import './mixins/mixins';
 
 @include Block(button) {
   padding: 7px 15px;
-  border-radius: $borderRadius + px;
-  font-size: $fontSize;
+  border-radius: $border-radius + px;
+  font-size: $font-size;
   line-height: 16px;
   cursor: pointer;
-  color: $white;
-  border: 1px solid  $primary;
-  background:  $primary;
-  // @include Modifier(primary) {
-    // .gjf-button-primary {
-    //   border: 1px solid  $primary;
-    //   background:  $primary;  
-    // }
-  // }
+  color: $font-color-gray;
+  background: $white;
+  border: 1px solid $border-color-gray;
+  @include Modifier($color-list){
+  }
 
+  &:focus,
+  &:hover{
+    outline: none;
+    @include Modifier($color-list-active)
+  }
 }
