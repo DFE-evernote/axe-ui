@@ -26,6 +26,7 @@
     "type": "git",
     "url": "git+https://github.com/xingorg1/xingorg1-ui.git"
   },
+  "unpkg": "lib/index.js",
   "homepage": "",
   "keywords": [
     "xingorg1",
