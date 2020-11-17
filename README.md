@@ -1,5 +1,12 @@
-# axe-ui
-基于vue@3.x的一套PC端前端UI组件库
+<!-- # axe-ui -->
+<div style="text-align:center; margin: -100px 0">
+   <img src="./src/assets/images/logo.svg">
+</div>
+
+<div style="text-align:center;margin-bottom: 50px">
+   基于vue@3.x的一套PC端前端UI组件库
+</div>
+
 ## 技术栈
 * [Vue3.0](https://cn.vuejs.org/)
 * [TypeScript](https://www.tslang.cn/)
