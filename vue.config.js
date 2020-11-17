@@ -31,6 +31,7 @@ const commonConfig = {
     config.resolve.alias
       .set('packages', resolve('packages'))
       .set('comp', resolve('src/components'))
+      .set('axe-ui', resolve('./'))
       .set('style', resolve('styles'))
   },
   configureWebpack: {
