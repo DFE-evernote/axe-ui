@@ -1,11 +1,3 @@
-/*
- * @Author: @Guojufeng
- * @Date: 2020-11-01 23:52:40
- * @LastEditors: @Guojufeng
- * @LastEditTime: 2020-11-02 00:16:53
- * @FilePath: /Users/guojufeng/Documents/GitHub/xingorg1-ui/karma.conf.js
- */
-// karma.conf.js http://karma-runner.github.io/
 const webpackConfig = require('@vue/cli-service/webpack.config')
 
 module.exports = function(config) {

@@ -2,14 +2,14 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './index.css'
 // 全局导入
-import xingorg1UI from 'packages/index'
-console.log(xingorg1UI)
+import AxeUI from 'packages/index'
+console.log(AxeUI)
 
 // 按需导入
-// import { GjfIcon } from 'packages/index'
-// console.log(GjfIcon)
+// import { AxeIcon } from 'packages/index'
+// console.log(AxeIcon)
 // 注册
 let app = createApp(App)
-app.use(xingorg1UI)
-// app.use(GjfIcon)
+app.use(AxeUI)
+// app.use(AxeIcon)
 app.mount('#app')

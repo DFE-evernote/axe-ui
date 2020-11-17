@@ -1,12 +1,5 @@
-/*
- * @Author: @Guojufeng
- * @Date: 2020-11-01 19:47:03
- * @LastEditors: @Guojufeng
- * @LastEditTime: 2020-11-01 19:54:02
- * @FilePath: /Users/guojufeng/Documents/GitHub/xingorg1-ui/docs/.vitepress/config.js
- */
 module.exports = {
-  title: 'xingorg1-ui', // 设置网站标题
+  title: 'axe-ui', // 设置网站标题
   description: 'vue3组件库',
   dest: './build', // 输出目录
   themeConfig: {

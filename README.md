@@ -1,4 +1,4 @@
-# xingorg1-ui
+# axe-ui
 基于vue@3.x的一套PC端前端UI组件库
 ## 技术栈
 * [Vue3.0](https://cn.vuejs.org/)
@@ -47,8 +47,8 @@ npm install
 ```
 ### host配置
 ```
-#### xingorg1-ui
-127.0.0.1 dev.xingorg1-ui.com
+#### axe-ui
+127.0.0.1 dev.axe-ui.com
 ```
 ### 开发环境（编译+热更新）
 ```

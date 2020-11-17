@@ -2,12 +2,12 @@
   <div class="area demo-button">
     <h3>button-demo</h3>
     <div class="btns">
-      <gjf-button class="xiao-shi-tou">小石头的第一个组件</gjf-button>
-      <gjf-button type="primary">小石头的第一个组件</gjf-button>
-      <gjf-button type="success">success</gjf-button>
-      <gjf-button type="info">info</gjf-button>
-      <gjf-button type="warning">warning</gjf-button>
-      <gjf-button type="danger">danger</gjf-button>
+      <axe-button class="xiao-shi-tou">小石头的第一个组件</axe-button>
+      <axe-button type="primary">小石头的第一个组件</axe-button>
+      <axe-button type="success">success</axe-button>
+      <axe-button type="info">info</axe-button>
+      <axe-button type="warning">warning</axe-button>
+      <axe-button type="danger">danger</axe-button>
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
 <style lang="scss">
 .demo-button {
   .btns {
-    .gjf-button:not(:first-child) {
+    .axe-button:not(:first-child) {
       margin-left: 10px;
     }
   }

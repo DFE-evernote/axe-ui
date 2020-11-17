@@ -31,7 +31,7 @@
 @mixin Block($name) {
   $blockName: $name-prefix + $name !global; // 全局变量
   #{$blockName} {
-    // .gjf-button
+    // .axe-button
     @content;
   }
 }
@@ -42,7 +42,7 @@
   @each $key,$val in $modifier {
     @at-root {
       &#{$blockName + $separator + $key} {
-        // &.gjf-button-primary
+        // &.axe-button-primary
         color: $white;
         background: $val;
         border: 1px solid $val;

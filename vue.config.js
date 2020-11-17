@@ -1,10 +1,3 @@
-/*
- * @Author: @Guojufeng
- * @Date: 2020-11-01 00:12:31
- * @LastEditors: @Guojufeng
- * @LastEditTime: 2020-11-01 23:43:40
- * @FilePath: /Users/guojufeng/Documents/GitHub/xingorg1-ui/vue.config.js
- */
 const isProd = process.env.NODE_ENV === 'production'
 const path = require('path')
 const fs = require('fs')
@@ -30,7 +23,7 @@ const getEntries = dir => {
 const commonConfig = {
   publicPath: '/',
   devServer: {
-    host: 'dev.xingorg1-ui.com',
+    host: 'dev.axe-ui.com',
     port: 8080,
     disableHostCheck: true
   },
@@ -52,8 +45,8 @@ const commonConfig = {
 let buildConfig = {}
 // 按需加载（build命令&&后第二个脚本，为按需加载打包）
 const args = process.argv.slice(2) // 取出脚本执行时用户传入的所有参数
-if (isProd && args.includes('--xingorg1')) {
-  // '--xingorg1'作为自定义属性，为的是标识当前脚本是执行按需加载配置的
+if (isProd && args.includes('--axe')) {
+  // '--axe'作为自定义属性，为的是标识当前脚本是执行按需加载配置的
   // 生产环境 && 按需加载配置的时候
   buildConfig = {
     outputDir: 'dist', // 导出目录
@@ -68,7 +61,7 @@ if (isProd && args.includes('--xingorg1')) {
         filename: 'lib/[name]/index.js', // # 导出到对应名字的文件夹下的index.js
         libraryTarget: 'umd', // 打包规范umd
         libraryExport: 'default', // 导出格式-默认导出
-        library: ['xingorg1', '[name]'] // 打包的库名，会挂载在window上：window.xingorg1，其作为一个对象，内部还有多组件的[name]属性，如window.xingorg1.button
+        library: ['axe', '[name]'] // 打包的库名，会挂载在window上：window.axe，其作为一个对象，内部还有多组件的[name]属性，如window.axe.button
       },
       externals: {
         // 打包时排除项,减少包的体积 https://www.webpackjs.com/configuration/externals/

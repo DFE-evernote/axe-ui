@@ -1,6 +1,6 @@
 <template>
   <div class="area demo-icon">
-    <gjf-icon />
+    <axe-icon />
   </div>
 </template>
 
