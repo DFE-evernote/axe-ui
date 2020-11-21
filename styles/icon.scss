@@ -1,0 +1,16 @@
+@import './common/var';
+@import './iconfonts/iconfont.css';
+
+[class*=" axe-icon-"], [class^=axe-icon-] {
+  font-family: "axeIcon" !important;
+  speak: none;
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}

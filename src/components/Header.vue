@@ -15,7 +15,9 @@
     cursor: pointer;
     img {
       width: 100%;
-      margin: -70px;
+      margin-top: 5px;
+      margin-left: -35px;
+      transform: scale(0.75);
     }
   }
   .axe-github {

@@ -1,11 +1,12 @@
 <template>
-  <div class="axe-icon">
-    <span>icon</span>
-  </div>
+  <i :class="'axe-icon-' + name"></i>
 </template>
 
 <script>
 export default {
-  name: 'AxeIcon'
+  name: 'AxeIcon',
+  props: {
+    name: String
+  }
 }
 </script>

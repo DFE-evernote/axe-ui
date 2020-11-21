@@ -1,7 +1,8 @@
 <template>
   <button :class="classify">
     <!-- 类名设置统一为“axe-”的前缀 -->
-    <span>
+    <i :class="icon" />
+    <span v-if="$slots.default">
       <slot></slot>
     </span>
   </button>
@@ -24,8 +25,11 @@ export default {
               '中的一种。'
           )
         }
-        return true
+        return true // 校验器：返回true表示校验通过
       }
+    },
+    icon: {
+      type: String
     }
   },
   setup(props) {
