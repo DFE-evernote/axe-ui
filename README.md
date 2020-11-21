@@ -4,7 +4,7 @@
 </div>
 
 <div style="text-align:center;margin-bottom: 50px">
-   基于vue@3.x的一套PC端前端UI组件库
+   基于vue-next的一套PC端前端UI组件库
 </div>
 
 ## 技术栈
@@ -49,36 +49,48 @@
       └─ xx.spec.ts # xx模块测试文件
 ```
 ## 依赖安装
+
+本项目是使用vue-cli搭建项目框架，需要用vue3，得先把vue-cli的版本升级到vue-cli@5以上：
+```
+npm install -g @vue/cli
+```
+然后在 Vue 项目运行：
+```
+vue upgrade --next
+```
+最后安装依赖：
 ```
 npm install
 ```
-### host配置
+## host配置
+因为服务启动后需要访问域名，故可以先进行配置：
+
 ```
 #### axe-ui
 127.0.0.1 dev.axe-ui.com
 ```
-### 开发环境（编译+热更新）
+## 开发环境（编译+热更新）
 ```
 npm run serve
 # or
 npm run dev
 ```
 
-### 生产环境（打包+压缩）
+## 生产环境（打包+压缩）
 ```
 npm run build
 ```
 
-### 单元测试
+## 单元测试
 ```
 npm run test:unit
 ```
 
-### 代码校验和修复
+## 代码校验和修复
 ```
 npm run lint
 ```
 
-### 自定义配置
+## 自定义配置
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
