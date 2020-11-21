@@ -49,16 +49,20 @@
       └─ xx.spec.ts # xx模块测试文件
 ```
 ## 依赖安装
+### 1、环境要求
+- `node`： 8.9+ (推荐 10+)
+- `npm`： 6+
 
-本项目是使用vue-cli搭建项目框架，需要用vue3，得先把vue-cli的版本升级到vue-cli@5以上：
+> Vue CLI  requires [Node.js](https://nodejs.org/en/) version 8.9 or above (v10+ recommended). You can manage multiple versions of Node on the same machine with [n](https://github.com/tj/n), [nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows). 
+
+### 2、升级cli
+本项目是使用vue-cli搭建项目框架，需要用vue3，得先把vue-cli的版本升级到`vue-cli@4.5`以上：
 ```
 npm install -g @vue/cli
 ```
-然后在 Vue 项目运行：
-```
-vue upgrade --next
-```
-最后安装依赖：
+> 因为不更新版本直接install，会报[vue-loader-v16](https://github.com/vuejs/vue-cli/pull/5718#issuecomment-673360542)相关的错。但是这个问题在[vue-cli@4.5.1修复](https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md#bug-bug-fix-7)了。所以推荐更新的到最新版～
+
+### 3、安装依赖：
 ```
 npm install
 ```
