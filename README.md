@@ -1,7 +1,7 @@
 <!-- # axe-ui -->
-<div style="text-align:center; margin: -100px 0">
+<p align="center" style=" margin: -100px 0">
    <img src="./src/assets/images/logo.svg">
-</div>
+</p>
 
 
 <p align="center">
@@ -33,7 +33,7 @@
 </p>
 
 
-<div style="text-align:center;margin-bottom: 50px">
+<div align="center" style="margin-bottom: 50px">
    基于vue-next的一套PC端前端UI组件库
 </div>
 
