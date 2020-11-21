@@ -1,6 +1,6 @@
 <!-- # axe-ui -->
-<p align="center" style=" margin: -100px 0">
-   <img src="./src/assets/images/logo.svg">
+<p align="center">
+   <img src="./axe-ui.svg">
 </p>
 
 
