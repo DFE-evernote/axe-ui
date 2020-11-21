@@ -80,7 +80,7 @@
 ```
 ## 依赖安装
 ### 1、环境要求
-- `node`： 8.9+ (推荐 10+)
+- `no`de``： 8.9+ (推荐 10+)
 - `npm`： 6+
 
 > Vue CLI  requires [Node.js](https://nodejs.org/en/) version 8.9 or above (v10+ recommended). You can manage multiple versions of Node on the same machine with [n](https://github.com/tj/n), [nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows). 
@@ -103,19 +103,27 @@ npm install
 #### axe-ui
 127.0.0.1 dev.axe-ui.com
 ```
-## 开发环境（编译+热更新）
+## 开始开发
+### 启动文档平台
+整个axe-ui平台启动，适用源码开发、文档编写。
 ```
 npm run serve
 # or
 npm run dev
 ```
 
-## 生产环境（打包+压缩）
-```
-npm run build
-```
+### 浏览地址
+启动成功后在浏览器中打开 http://dev.axe-ui.com:8080/  导航至相应组件即可进行开发。
+
+源码地址：`packages/`
+
+## 开发完成后  
+• 如果是修复 bug，请确保该组件的其他功能没有受到本修复的影响。  
+• 如果是新增功能，请在文档中补充该功能的 API 说明，并在 TypeScript 定义中添加该 API。视功能的复杂程度，有时还需要添加测试用例和文档例子。  
 
 ## 单元测试
+在提交代码前，建议首先在本地运行一遍测试。  
+使用下列命令，即可进行测试，并且在你改变代码后会再次触发测试。
 ```
 npm run test:unit
 ```
@@ -123,6 +131,26 @@ npm run test:unit
 ## 代码校验和修复
 ```
 npm run lint
+```
+## 提交代码
+在 commit 代码时，commit message 请遵循以下格式：
+```
+<Commit 类型>: <commit 描述>
+```
+**commit 类型可以是：**  
+• `Tree`：如果本次 commit 修复了某个组件的 bug，或为某个组件添加了 feature，则 commit 类型为该组件的名称  
+• `Docs`：本次 commit 与文档相关，如优化了文档某处语言描述、新增了一个例子  
+• `Chore`：本次 commit 与构建、CI 相关，如修改了 webpack 配置、修改了发布脚本  
+• `Utils`：本次 commit 修改了 src/utils 中的某些内容  
+• `Test`：本次 commit 修改了 test 中的某些内容  
+• `Changelog`：一般仅在发布新版本前出现，表示新增了本次发布的更新说明  
+
+
+## 生产环境（打包+压缩）
+生成dist文件
+
+```
+npm run build
 ```
 
 ## 自定义配置
