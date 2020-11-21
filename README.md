@@ -3,6 +3,36 @@
    <img src="./src/assets/images/logo.svg">
 </div>
 
+
+<p align="center">
+  <!-- <a href="https://travis-ci.org/DFE-evernote/axe-ui">
+    <img src="https://travis-ci.org/DFE-evernote/axe-ui.svg?branch=main">
+  </a>
+  <a href="https://coveralls.io/github/DFE-evernote/axe-ui?branch=main">
+    <img src="https://coveralls.io/repos/github/DFE-evernote/axe-ui/badge.svg?branch=main">
+  </a> -->
+  <!-- <a href="https://cdnjs.com/libraries/axe-ui">
+    <img src="https://img.shields.io/cdnjs/v/axe-ui.svg">
+  </a> -->
+  <a href="https://www.npmjs.org/package/axe-ui">
+    <img src="https://img.shields.io/npm/v/axe-ui.svg">
+  </a>
+  <a href="https://npmcharts.com/compare/axe-ui?minimal=true">
+    <img src="http://img.shields.io/npm/dm/axe-ui.svg">
+  </a>
+  <br>
+  <a href="http://img.badgesize.io/https://unpkg.com/axe-ui/dist/axe.umd.js?compression=gzip&label=gzip%20size:%20JS">
+    <img src="http://img.badgesize.io/https://unpkg.com/axe-ui/dist/axe.umd.js?compression=gzip&label=gzip%20size:%20JS">
+  </a>
+  <a href="http://img.badgesize.io/https://unpkg.com/axe-ui/dist/axe.css?compression=gzip&label=gzip%20size:%20CSS">
+    <img src="http://img.badgesize.io/https://unpkg.com/axe-ui/dist/axe.css?compression=gzip&label=gzip%20size:%20CSS">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+  </a>
+</p>
+
+
 <div style="text-align:center;margin-bottom: 50px">
    基于vue-next的一套PC端前端UI组件库
 </div>
@@ -25,8 +55,8 @@
 │  ├─ button # 单组件
 │  │  ├─ src
 │  │  │  └─ button.vue
-│  │  └─ index.js
-│  └─ index.js # 全部组件入口
+│  │  └─ axe.umd.js
+│  └─ axe.umd.js # 全部组件入口
 ├─ public
 │  ├─ img
 │  │  └─ icons # 存放pwa 图标
