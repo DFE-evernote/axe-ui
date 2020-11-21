@@ -1,7 +1,9 @@
 <template>
-  <button :class="classify">
+  <button :class="classify" :disabled="disabled || loading">
     <!-- 类名设置统一为“axe-”的前缀 -->
-    <span>
+    <i :class="['icon', icon]" v-if="icon && !loading" />
+    <i class="icon axe-icon-loading" v-if="!icon && loading" />
+    <span v-if="$slots.default">
       <slot></slot>
     </span>
   </button>
@@ -24,9 +26,12 @@ export default {
               '中的一种。'
           )
         }
-        return true
+        return true // 校验器：返回true表示校验通过
       }
-    }
+    },
+    icon: String,
+    loading: Boolean,
+    disabled: Boolean
   },
   setup(props) {
     const classify = computed(() => ['axe-button', `axe-button-${props.type}`])

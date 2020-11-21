@@ -1,0 +1,36 @@
+@import './common/var';
+@import './mixins/mixins';
+@import './iconfonts/iconfont.css';
+
+[class*=" axe-icon-"], [class^=axe-icon-] {
+  font-family: "axeIcon" !important;
+  speak: none;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+@include Block(icon-svg){
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.axe-icon-loading{
+  animation: loading .85s linear infinite;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

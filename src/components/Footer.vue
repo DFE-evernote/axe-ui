@@ -8,7 +8,6 @@
   .axe-title {
     float: right;
     width: 100px;
-    margin: -30px -20px;
     font-size: 24px;
     font-family: 'Eina03-Bold';
   }
@@ -28,7 +27,6 @@
 <template>
   <div class="axe-footer">
     <div class="axe-title">
-      axe-ui
       <div class="img">
         <!-- <img src="@/assets/images/logo-small.svg" alt="axe-ui" /> -->
         <img src="@/assets/images/logo.svg" alt="axe-ui" />
