@@ -6,6 +6,83 @@
   "description": "axe组件库",
   "glyphs": [
     {
+      "icon_id": "9761503",
+      "name": "jianhao",
+      "font_class": "jianhao",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "9889267",
+      "name": "ykz-add-empty",
+      "font_class": "ykz-add-empty",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "11452214",
+      "name": "z-add-img",
+      "font_class": "z-add-img",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11941417",
+      "name": "jianhao",
+      "font_class": "jianhao1",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "17705492",
+      "name": "减号",
+      "font_class": "-hao",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "17909941",
+      "name": "新增-Add-2-fill",
+      "font_class": "xinzeng-Add-2-fill",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "2116548",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e741",
+      "unicode_decimal": 59201
+    },
+    {
+      "icon_id": "2179630",
+      "name": "packup",
+      "font_class": "packup",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
+      "icon_id": "2179631",
+      "name": "unfold",
+      "font_class": "unfold",
+      "unicode": "e74a",
+      "unicode_decimal": 59210
+    },
+    {
+      "icon_id": "10861210",
+      "name": "loading",
+      "font_class": "loading",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "16866351",
+      "name": "Edit",
+      "font_class": "Edit",
+      "unicode": "e6c1",
+      "unicode_decimal": 59073
+    },
+    {
       "icon_id": "15681628",
       "name": "历史",
       "font_class": "lishi",
