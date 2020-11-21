@@ -1,7 +1,8 @@
 import AxeButton from './button/'
+import AxeCard from './card'
 import AxeIcon from './icon/'
 console.log(AxeButton, AxeIcon)
-const components = [AxeButton, AxeIcon]
+const components = [AxeButton, AxeIcon, AxeCard]
 
 var install = (app, opts = {}) => {
   components.forEach(item => {

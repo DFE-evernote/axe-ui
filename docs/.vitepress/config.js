@@ -20,6 +20,12 @@ module.exports = {
         link: '/button/',
         collapsable: false,
         sidebarDepth: 1
+      },
+      {
+        text: 'Card',
+        link: '/card/',
+        collapsable: false,
+        sidebarDepth: 1
       }
     ]
   }
