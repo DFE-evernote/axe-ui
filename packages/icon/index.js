@@ -1,5 +1,5 @@
 import Icon from './src/icon.vue'
-import '../../styles/icon.scss'
+import 'style/icon.scss'
 
 Icon.install = app => {
   app.component(Icon.name, Icon)
