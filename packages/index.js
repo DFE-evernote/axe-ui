@@ -1,10 +1,11 @@
 import AxeButton from './button/'
 import AxeCard from './card'
+import AxeButtonGroup from './button-group/'
 import AxeIcon from './icon/'
 console.log(AxeButton, AxeIcon)
-const components = [AxeButton, AxeIcon, AxeCard]
+const components = [AxeButton, AxeIcon, AxeCard, AxeButtonGroup]
 
-var install = (app, opts = {}) => {
+const install = (app, opts = {}) => {
   components.forEach(item => {
     app.component(item.name, item)
   })
@@ -20,5 +21,7 @@ export default {
   version: '1.0.0',
   install,
   AxeButton, // 单独导出button组件用于按需加载
-  AxeIcon
+  AxeIcon,
+  AxeCard,
+  AxeButtonGroup
 }

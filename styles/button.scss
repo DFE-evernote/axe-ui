@@ -39,4 +39,17 @@
     outline: none;
     @include Modifier($color-list-active)
   }
+
+  &[disabled] {
+    background-color: #eee;
+    cursor: not-allowed;
+  }
+
+  .icon {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+  .axe-icon-loading {
+    font-size: 14px;
+  }
 }

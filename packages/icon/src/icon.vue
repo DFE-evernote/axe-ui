@@ -1,11 +1,16 @@
 <template>
-  <div class="axe-icon">
-    <span>icon</span>
-  </div>
+  <svg class="axe-icon-svg" aria-hidden="true">
+    <use :xlink:href="`#axe-icon-${name}`" />
+  </svg>
 </template>
 
 <script>
+import 'style/iconfonts/iconfont.js'
+
 export default {
-  name: 'AxeIcon'
+  name: 'AxeIcon',
+  props: {
+    name: String
+  }
 }
 </script>
