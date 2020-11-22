@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './index.css'
+import './index.scss'
 // 全局导入
 import AxeUI from 'packages/index'
 console.log(AxeUI)
