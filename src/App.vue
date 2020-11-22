@@ -16,6 +16,7 @@
     <axe-header />
     <div class="axe-main">
       <Button />
+      <ButtonGroup />
       <Icon />
       <Card />
     </div>
@@ -26,6 +27,7 @@
 <script>
 import Button from './components/Button.vue'
 import Icon from './components/Icon.vue'
+import ButtonGroup from './components/ButtonGroup.vue'
 import Card from './components/Card.vue'
 
 export default {
@@ -33,6 +35,7 @@ export default {
   components: {
     Button,
     Icon,
+    ButtonGroup,
     Card
   }
 }
