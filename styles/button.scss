@@ -21,17 +21,28 @@
 
 @import './base';
 @import './mixins/mixins';
+$btn-position: '-right';
 
 @include Block(button) {
   padding: $padding-vertical + px $padding-standard + px;
   border-radius: $border-radius + px;
   font-size: $font-size;
   line-height: 16px;
+  vertical-align: middle;
   cursor: pointer;
   color: $font-color-gray;
   background: $white;
   border: 1px solid $border-color-gray;
   @include Modifier($color-list){
+  }
+  &#{$btn-position} {
+    display: inline-flex;
+    .icon {
+      order: 2;
+    }
+    span{
+      order: 1;
+    }
   }
 
   &:focus,

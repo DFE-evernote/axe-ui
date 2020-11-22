@@ -16,6 +16,7 @@
     <axe-header />
     <div class="axe-main">
       <Button />
+      <ButtonGroup />
       <Icon />
     </div>
     <axe-footer />
@@ -25,12 +26,14 @@
 <script>
 import Button from './components/Button.vue'
 import Icon from './components/Icon.vue'
+import ButtonGroup from './components/ButtonGroup.vue'
 
 export default {
   name: 'App',
   components: {
     Button,
-    Icon
+    Icon,
+    ButtonGroup
   }
 }
 </script>
