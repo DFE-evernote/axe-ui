@@ -18,6 +18,7 @@
       <Button />
       <ButtonGroup />
       <Icon />
+      <Card />
     </div>
     <axe-footer />
   </div>
@@ -27,13 +28,15 @@
 import Button from './components/Button.vue'
 import Icon from './components/Icon.vue'
 import ButtonGroup from './components/ButtonGroup.vue'
+import Card from './components/Card.vue'
 
 export default {
   name: 'App',
   components: {
     Button,
     Icon,
-    ButtonGroup
+    ButtonGroup,
+    Card
   }
 }
 </script>
