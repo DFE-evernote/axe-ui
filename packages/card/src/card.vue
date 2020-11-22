@@ -1,18 +1,34 @@
 <template>
-  <div class="axe-card is-always-shadow">
-    <div class="axe-card__header">
-      <slot name="header"></slot>
+  <div :class="['axe-card', `is-${shadow}-shadow`]">
+    <div v-if="$slots.header || header" class="axe-card__header">
+      <slot name="header">{{ header }}</slot>
     </div>
-    <div class="axe-card__body">
-      <div>列表内容</div>
+    <div class="axe-card__body" :style="bodyStyle">
+      <slot />
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'AxeCard'
-}
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'AxeCard',
+  props: {
+    header: {
+      type: String,
+      default: ''
+    },
+    bodyStyle: {
+      type: String,
+      default: ''
+    },
+    shadow: {
+      type: String,
+      default: 'always'
+    }
+  }
+})
 </script>
 
 <style>
