@@ -6,7 +6,7 @@ module.exports = {
     nav: [
       { test: '主页', link: '/' },
       { test: '联系我', link: '/' },
-      { test: '源码', link: '/' },
+      { test: '源码', link: '/' }
     ],
     sidebar: [
       {
@@ -21,9 +21,15 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 1
       },
-       {
+      {
         text: 'Input 输入框',
         link: '/input/',
+        collapsable: false,
+        sidebarDepth: 1
+      },
+      {
+        text: 'Card卡片',
+        link: '/card/',
         collapsable: false,
         sidebarDepth: 1
       }

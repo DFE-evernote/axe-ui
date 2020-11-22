@@ -6,6 +6,41 @@
   "description": "axe组件库",
   "glyphs": [
     {
+      "icon_id": "9855425",
+      "name": "分页 下一页",
+      "font_class": "194",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "10083750",
+      "name": "分页 - 下一页",
+      "font_class": "fenye-xiayiye",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "13486053",
+      "name": "下三角",
+      "font_class": "xiasanjiao",
+      "unicode": "e963",
+      "unicode_decimal": 59747
+    },
+    {
+      "icon_id": "16752432",
+      "name": "向左三角",
+      "font_class": "xiangzuosanjiao",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "17950893",
+      "name": "分页 下一页",
+      "font_class": "278",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
       "icon_id": "9761503",
       "name": "jianhao",
       "font_class": "jianhao",

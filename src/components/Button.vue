@@ -1,6 +1,6 @@
 <template>
   <div class="area demo-button">
-    <h1>button组件</h1>
+    <p class="demo-title">Button 按钮</p>
     <div class="btns">
       <axe-button class="xiao-shi-tou">default</axe-button>
       <axe-button type="primary">primary</axe-button>
@@ -9,10 +9,10 @@
       <axe-button type="warning">warning</axe-button>
       <axe-button type="danger">danger</axe-button>
     </div>
-    <h3>带状态</h3>
+    <p class="demo-title"></p>
     <div class="btns">
       <axe-button disabled icon="axe-icon-jianhao">disabled</axe-button>
-      <axe-button loading="true">加载中</axe-button>
+      <axe-button :loading="true">加载中</axe-button>
     </div>
   </div>
 </template>
