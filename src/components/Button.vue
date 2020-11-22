@@ -12,7 +12,7 @@
     <h3>带状态</h3>
     <div class="btns">
       <axe-button disabled icon="axe-icon-jianhao">disabled</axe-button>
-      <axe-button loading="true">加载中</axe-button>
+      <axe-button :loading="true">加载中</axe-button>
     </div>
   </div>
 </template>

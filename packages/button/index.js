@@ -13,7 +13,7 @@
  */
 
 import Button from './src/button.vue' // 导入组件
-import '../../styles/button.scss' // 按需导入单个组件的样式
+import 'style/button.scss' // 按需导入单个组件的样式
 
 Button.install = app => {
   // 组件install属性
