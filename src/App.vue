@@ -17,6 +17,7 @@
     <div class="axe-main">
       <Button />
       <Icon />
+      <Card />
     </div>
     <axe-footer />
   </div>
@@ -25,12 +26,14 @@
 <script>
 import Button from './components/Button.vue'
 import Icon from './components/Icon.vue'
+import Card from './components/Card.vue'
 
 export default {
   name: 'App',
   components: {
     Button,
-    Icon
+    Icon,
+    Card
   }
 }
 </script>

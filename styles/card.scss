@@ -1,0 +1,49 @@
+// @import './base';
+@import './mixins/mixins';
+$--border-color-lighter: #ebeef5 !default;
+/* Card
+--------------------------*/
+/// color||Color|0
+$--card-border-color: $--border-color-lighter !default;
+$--card-border-radius: 4px !default;
+/// padding||Spacing|3
+$--card-padding: 20px !default;
+
+$--color-text-primary: #303133 !default;
+$--box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+@include Block(card) {
+  border-radius: $--card-border-radius;
+  border: 1px solid $--card-border-color;
+  background-color: $white;
+  overflow: hidden;
+  color: $--color-text-primary;
+  transition: 0.3s;
+
+  @include when(always-shadow) {
+    box-shadow: $--box-shadow-light;
+  }
+  @include when(hover-shadow) {
+    &:hover,
+    &:focus {
+      box-shadow: $--box-shadow-light;
+    }
+  }
+
+  &__header {
+    padding: #{$--card-padding - 2 $--card-padding};
+    border-bottom: 1px solid $--card-border-color;
+    box-sizing: border-box;
+  }
+  &__body {
+    padding: $--card-padding;
+  }
+}
