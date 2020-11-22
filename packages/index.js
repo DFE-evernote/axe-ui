@@ -1,8 +1,9 @@
 import AxeButton from './button/'
 import AxeButtonGroup from './button-group/'
 import AxeIcon from './icon/'
-console.log(AxeButton, AxeIcon)
-const components = [AxeButton, AxeIcon, AxeButtonGroup]
+import AxeInput from './input/'
+// console.log(AxeButton, AxeIcon)
+const components = [AxeButton, AxeIcon, AxeButtonGroup, AxeInput]
 
 const install = (app, opts = {}) => {
   components.forEach(item => {
@@ -21,5 +22,6 @@ export default {
   install,
   AxeButton, // 单独导出button组件用于按需加载
   AxeIcon,
-  AxeButtonGroup
+  AxeButtonGroup,
+  AxeInput
 }

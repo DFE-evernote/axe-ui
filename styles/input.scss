@@ -1,0 +1,22 @@
+@import './mixins/mixins';
+
+@include Block(input) {
+  position: relative;
+  font-size: $font-size;
+  display: inline-block;
+  &__inner {
+    background-color: $white;
+    background-image: none;
+    -webkit-appearance: none;
+    border-radius: $border-radius;
+    border: 1px solid $border-color-gray;
+    color: $font-color-gray;
+    font-size: inherit;
+    height: $input-height;
+    line-height: $input-height;
+    outline: 0;
+    padding: 0 15px;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+  }
+}

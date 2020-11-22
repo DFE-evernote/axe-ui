@@ -17,6 +17,7 @@
     <div class="axe-main">
       <Button />
       <Icon />
+      <Input />
     </div>
     <axe-footer />
   </div>
@@ -25,12 +26,14 @@
 <script>
 import Button from './components/Button.vue'
 import Icon from './components/Icon.vue'
+import Input from './components/Input.vue'
 
 export default {
   name: 'App',
   components: {
     Button,
-    Icon
+    Icon,
+    Input
   }
 }
 </script>

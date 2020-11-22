@@ -20,6 +20,12 @@ module.exports = {
         link: '/button/',
         collapsable: false,
         sidebarDepth: 1
+      },
+       {
+        text: 'Input 输入框',
+        link: '/input/',
+        collapsable: false,
+        sidebarDepth: 1
       }
     ]
   }
