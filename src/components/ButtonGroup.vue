@@ -1,6 +1,6 @@
 <template>
   <div class="area demo-icon">
-    <h1>button-group 按钮组</h1>
+    <p class="demo-title">ButtonGroup 按钮组</p>
     <axe-button-group>
       <axe-button icon="axe-icon-xiangzuosanjiao">上一页</axe-button>
       <axe-button icon="axe-icon-194" position="right">下一页</axe-button>
