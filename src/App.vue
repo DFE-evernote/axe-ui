@@ -12,7 +12,7 @@
 }
 </style>
 <template>
-  <div class="axe-container">
+  <!-- <div class="axe-container"> -->
     <axe-header />
     <div class="axe-main">
       <Button />
@@ -22,7 +22,7 @@
       <Input />
     </div>
     <axe-footer />
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
