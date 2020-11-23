@@ -12,16 +12,16 @@
 }
 </style>
 <template>
-  <div class="axe-container">
-    <axe-header />
-    <div class="axe-main">
-      <Button />
-      <ButtonGroup />
-      <Icon />
-      <Card />
-    </div>
-    <axe-footer />
+  <!-- <div class="axe-container"> -->
+  <axe-header />
+  <div class="axe-main">
+    <Button />
+    <ButtonGroup />
+    <Icon />
+    <Card />
   </div>
+  <axe-footer />
+  <!-- </div> -->
 </template>
 
 <script>

@@ -9,7 +9,8 @@ module.exports = {
   },
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "vue/no-multiple-template-root": 0 // https://github.com/vuejs/eslint-plugin-vue/issues/1297
   },
   overrides: [
     {
