@@ -24,12 +24,12 @@
  */
 
 /* color */
-$white: #FFFFFF;
+$white: #ffffff;
 $black: #000000;
-$primary: #409EFF;
-$success: #67C23A;
-$warning: #E6A23C;
-$danger: #F56C6C;
+$primary: #409eff;
+$success: #67c23a;
+$warning: #e6a23c;
+$danger: #f56c6c;
 $info: #909399;
 $primary-active: #3291f0;
 $success-active: #57ae2b;
@@ -63,4 +63,8 @@ $padding-vertical: 7;
 $padding-standard: 15;
 
 /* font */
-$fontPath: './iconfonts/'
+$fontPath: './iconfonts/';
+
+$base-line-height: 1.5;
+
+$input-height: 40px;
