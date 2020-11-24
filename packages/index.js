@@ -3,7 +3,7 @@ import AxeCard from './card'
 import AxeButtonGroup from './button-group/'
 import AxeIcon from './icon/'
 import AxeInput from './input/'
-console.log(AxeButton, AxeIcon)
+
 const components = [AxeButton, AxeIcon, AxeCard, AxeButtonGroup, AxeInput]
 
 const install = (app, opts = {}) => {

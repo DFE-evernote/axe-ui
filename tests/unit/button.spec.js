@@ -7,18 +7,18 @@ describe('button按钮测试用例', () => {
     /* 
     const contianer = document.createElement('div')
     const app = createApp({
-      template: `<axe-button />`,
+      template: `<axe-button />`, // 初步怀疑用中横线就报错～但后来发现跟他好像没关系
       components: {
         'axe-button': AxeButton
       }
     })
-    app.mount(contianer)
+    app.mount(contianer) // 也有可能是这里的问题
     let html = app.$el.innerHTML // TypeError: Cannot read property 'innerHTML' of undefined 
     expect(html).to.eq('button')
     */
     const container = document.createElement('div')
     const app = createApp({
-      template: `<axeButton />`,
+      template: '<axeButton />', // 小驼峰就没问题
       components: {
         axeButton: AxeButton
       }
