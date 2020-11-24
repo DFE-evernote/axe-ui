@@ -87,14 +87,18 @@
 
 ### 2、升级cli
 本项目是使用vue-cli搭建项目框架，需要用vue3，得先把vue-cli的版本升级到`vue-cli@4.5`以上：
-```
+```sh
 npm install -g @vue/cli
 ```
 > 因为不更新版本直接install，会报[vue-loader-v16](https://github.com/vuejs/vue-cli/pull/5718#issuecomment-673360542)相关的错。但是这个问题在[vue-cli@4.5.1修复](https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md#bug-bug-fix-7)了。所以推荐更新的到最新版～
 
 ### 3、安装依赖：
-```
+```sh
 npm install
+# or
+make install
+# or
+make install-cn # 用淘宝镜像安装
 ```
 ## host配置
 因为服务启动后需要访问域名，故可以先进行配置：
@@ -104,12 +108,30 @@ npm install
 127.0.0.1 dev.axe-ui.com
 ```
 ## 开始开发
+### 自动化创建新组件
+```sh
+make new <component-name> [组件中文名]
+```
+`component-name`：组件名，中横线命名法。如：button、button-group
+`组件中文名`：可选，建议有。
+
+```sh
+# demo：
+make new radio 单选框
+
+make new radio-group 单选框组
+```
+关于`make`命令的使用见这里[wiki](https://github.com/DFE-evernote/axe-ui/wiki/make%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)，
+
+**推荐使用make命令开发**
 ### 启动文档平台
 整个axe-ui平台启动，适用源码开发、文档编写。
-```
+```sh
 npm run serve
 # or
 npm run dev
+# or
+make dev
 ```
 
 ### 浏览地址
@@ -124,12 +146,14 @@ npm run dev
 ## 单元测试
 在提交代码前，建议首先在本地运行一遍测试。  
 使用下列命令，即可进行测试，并且在你改变代码后会再次触发测试。
-```
-npm run test:unit
+```sh
+npm run test:ui
+# or
+make test
 ```
 
 ## 代码校验和修复
-```
+```sh
 npm run lint
 ```
 ## 提交代码
@@ -149,10 +173,17 @@ npm run lint
 ## 生产环境（打包+压缩）
 生成dist文件
 
+```sh
+npm run dist
+# or
+make dist
 ```
-npm run build
+## 发包
+```sh
+npm run pub
+# or
+make pub
 ```
-
 ## 自定义配置
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
