@@ -37,153 +37,53 @@
    基于vue-next的一套PC端前端UI组件库
 </div>
 
-## 技术栈
-* [Vue3.0](https://cn.vuejs.org/)
-* [TypeScript](https://www.tslang.cn/)
-* [Dart Scss](https://sass-lang.com/)
-* [Mocha](https://mochajs.org/) + [chai](https://www.chaijs.com/)
-* [Eslint](https://eslint.bootcss.com/)
+## 常用链接
+- [FQA]()
 
-## 目录结构
-```bash
-.
-├─ README.md
-├─ package.json
-├─ docs # 组件使用文档
-│  └─ button.md
-├─ packages # 组件源码
-│  ├─ button # 单组件
-│  │  ├─ src
-│  │  │  └─ button.vue
-│  │  └─ axe.umd.js
-│  └─ axe.umd.js # 全部组件入口
-├─ public
-│  ├─ img
-│  │  └─ icons # 存放pwa 图标
-│  ├─ favicon.ico
-│  ├─ index.html
-│  └─ robots.txt
-├─ src # demo样式
-│  ├─ components # 存放单元组件使用Demo
-│  ├─ App.vue
-│  └─ main.ts
-├─ styles # 组件样式
-│  ├─ common
-│  │  ├─ _var.scss # 全局scss变量
-│  │  └─ xxx.scss
-│  ├─ mixin # 混合
-│  │  └─ xxx.scss
-│  └─ button.scss # 组件单样式
-└─ tests
-   └─ utils # 单元测试
-      └─ xx.spec.ts # xx模块测试文件
-```
-## 依赖安装
-### 1、环境要求
-- `no`de``： 8.9+ (推荐 10+)
-- `npm`： 6+
-
-> Vue CLI  requires [Node.js](https://nodejs.org/en/) version 8.9 or above (v10+ recommended). You can manage multiple versions of Node on the same machine with [n](https://github.com/tj/n), [nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows). 
-
-### 2、升级cli
-本项目是使用vue-cli搭建项目框架，需要用vue3，得先把vue-cli的版本升级到`vue-cli@4.5`以上：
+## 安装
 ```sh
-npm install -g @vue/cli
+npm install axe-ui -S
 ```
-> 因为不更新版本直接install，会报[vue-loader-v16](https://github.com/vuejs/vue-cli/pull/5718#issuecomment-673360542)相关的错。但是这个问题在[vue-cli@4.5.1修复](https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md#bug-bug-fix-7)了。所以推荐更新的到最新版～
-
-### 3、安装依赖：
+### 快速使用
 ```sh
-npm install
-# or
-make install
-# or
-make install-cn # 用淘宝镜像安装
+import Vue from 'vue'
+import Axe from 'axe-ui'
+
+Vue.use(Axe)
+
+// or
+import {
+  Input,
+  Button
+  // ...
+} from 'axe-ui'
+
+Vue.component(Input.name, Input)
+Vue.component(Button.name, Button)
 ```
-## host配置
-因为服务启动后需要访问域名，故可以先进行配置：
+## 浏览器支持
+- 现代浏览器
+- IE 11+
 
-```
-#### axe-ui
-127.0.0.1 dev.axe-ui.com
-```
-## 开始开发
-### 自动化创建新组件
-```sh
-make new <component-name> [组件中文名]
-```
-`component-name`：组件名，中横线命名法。如：button、button-group
-`组件中文名`：可选，建议有。
+## 开发文档
+- [中文文档]()
 
-```sh
-# demo：
-make new radio 单选框
+## 更新日志
+[release notes](https://github.com/DFE-evernote/axe-ui/releases)
 
-make new radio-group 单选框组
-```
-关于`make`命令的使用见这里[wiki](https://github.com/DFE-evernote/axe-ui/wiki/make%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)，
+## 参与贡献
+在拉取代码前请先查看我们的[贡献文档](https://github.com/DFE-evernote/axe-ui/issues/19)
 
-**推荐使用make命令开发**
-### 启动文档平台
-整个axe-ui平台启动，适用源码开发、文档编写。
-```sh
-npm run serve
-# or
-npm run dev
-# or
-make dev
-```
+## 特别感谢
+下面的贡献者让组件库变得更好，感谢[所有为Axe做出贡献的人](https://github.com/DFE-evernote/axe-ui/graphs/contributors)!
 
-### 浏览地址
-启动成功后在浏览器中打开 http://dev.axe-ui.com:8080/  导航至相应组件即可进行开发。
+以贡献时间为序，感谢：  
 
-源码地址：`packages/`
-
-## 开发完成后  
-• 如果是修复 bug，请确保该组件的其他功能没有受到本修复的影响。  
-• 如果是新增功能，请在文档中补充该功能的 API 说明，并在 TypeScript 定义中添加该 API。视功能的复杂程度，有时还需要添加测试用例和文档例子。  
-
-## 单元测试
-在提交代码前，建议首先在本地运行一遍测试。  
-使用下列命令，即可进行测试，并且在你改变代码后会再次触发测试。
-```sh
-npm run test:ui
-# or
-make test
-```
-
-## 代码校验和修复
-```sh
-npm run lint
-```
-## 提交代码
-在 commit 代码时，commit message 请遵循以下格式：
-```
-<Commit 类型>: <commit 描述>
-```
-**commit 类型可以是：**  
-• `Tree`：如果本次 commit 修复了某个组件的 bug，或为某个组件添加了 feature，则 commit 类型为该组件的名称  
-• `Docs`：本次 commit 与文档相关，如优化了文档某处语言描述、新增了一个例子  
-• `Chore`：本次 commit 与构建、CI 相关，如修改了 webpack 配置、修改了发布脚本  
-• `Utils`：本次 commit 修改了 src/utils 中的某些内容  
-• `Test`：本次 commit 修改了 test 中的某些内容  
-• `Changelog`：一般仅在发布新版本前出现，表示新增了本次发布的更新说明  
+-[Otto](https://github.com/Otto-J)
 
 
-## 生产环境（打包+压缩）
-生成dist文件
 
-```sh
-npm run dist
-# or
-make dist
-```
-## 发包
-```sh
-npm run pub
-# or
-make pub
-```
-## 自定义配置
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
+## 加入我们
+[《加入axe-ui》](https://www.yuque.com/docs/share/03c22f3e-e1d0-4b8f-8f73-33921c61e8a9) 
+## LICENSE
+[MIT](https://github.com/DFE-evernote/axe-ui/blob/main/LICENSE)
