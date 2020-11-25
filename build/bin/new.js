@@ -1,4 +1,4 @@
-'use script'
+'use strict'
 const path = require('path'),
   fs = require('fs'),
   fileSave = require('file-save'),
@@ -24,7 +24,7 @@ if (process.argv.length < 3) {
 const compName = process.argv[2],
   compChineseName = process.argv[3] || compName, // 获取传进来的组件中文名
   compNameCameraCase = uppercamelcase(compName), // 大驼峰
-  compNameCameraCaseAxe = `Axe${compNameCameraCase}`, // 大驼峰
+  compNameCameraCaseAxe = `Axe${compNameCameraCase}`, // Axe大驼峰
   compPath = path.resolve(__dirname, '../../packages/', compName)
 console.log(compPath)
 
