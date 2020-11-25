@@ -27,7 +27,7 @@ export default {
               '中的一种。'
           )
         }
-        return true // 校验器：返回true表示校验通过
+        return true
       }
     },
     icon: String,

@@ -25,11 +25,14 @@
  */
 @import '../common/var';
 @import './config.scss';
-/* BEM 规范 */
+
+/*
+  BEM
+*/
 
 // 样式作用域
 @mixin Block($name) {
-  $blockName: $name-prefix + $name !global; // 全局变量
+  $blockName: $name-prefix + $name !global;
   #{$blockName} {
     // .axe-button
     @content;
@@ -38,7 +41,6 @@
 
 // 修饰符
 @mixin Modifier($modifier){
-  // $activeModifier: $modifier + '-active';
   @each $key,$val in $modifier {
     @at-root {
       &#{$blockName + $separator + $key} {
@@ -47,13 +49,6 @@
         background: $val;
         border: 1px solid $val;
         @content;
-        // &:focus,
-        // &:hover{
-        //   @each $keyAct,$valAct in $activeModifier {
-        //     background: $valAct;
-        //     border: 1px solid $valAct;
-        //   }
-        // }
       }
     }
   }

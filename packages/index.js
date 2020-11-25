@@ -18,10 +18,9 @@ const install = (app, opts = {}) => {
 }
 
 export default {
-  // 全局导出
   version: '1.0.0',
   install,
-  AxeButton, // 单独导出button组件用于按需加载
+  AxeButton,
   AxeIcon,
   AxeButtonGroup,
   AxeInput,
