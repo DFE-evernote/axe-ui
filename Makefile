@@ -9,7 +9,7 @@ install-cn:
 
 new:
 	node build/bin/new.js $(filter-out $@,$(MAKECMDGOALS))
-	node build/bin/build-entry.js $(filter-out $@,$(MAKECMDGOALS))
+	node build/bin/build-entry.js
 
 dev:
 	npm run dev
