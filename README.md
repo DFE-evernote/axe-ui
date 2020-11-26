@@ -45,17 +45,20 @@
 npm install axe-ui -S
 ```
 ### 快速使用
+全局引入：
 ```sh
 import Vue from 'vue'
 import Axe from 'axe-ui'
 
 Vue.use(Axe)
-
-// or
+```
+本组件支持按需导入。你也可以像下边这样，单独导入需要的组件：
+```sh
+import Vue from 'vue'
 import {
   Input,
   Button
-  // ...
+  // ...其他组件
 } from 'axe-ui'
 
 Vue.component(Input.name, Input)
