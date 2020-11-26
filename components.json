@@ -1,0 +1,7 @@
+{
+  "button": "./packages/button/index.js",
+  "button-group": "./packages/button-group/index.js",
+  "icon": "./packages/icon/index.js",
+  "card": "./packages/card/index.js",
+  "input": "./packages/input/index.js"
+}

@@ -13,15 +13,15 @@
 </style>
 <template>
   <!-- <div class="axe-container"> -->
-    <axe-header />
-    <div class="axe-main">
-      <Button />
-      <ButtonGroup />
-      <Icon />
-      <Card />
-      <Input />
-    </div>
-    <axe-footer />
+  <axe-header />
+  <div class="axe-main">
+    <Button />
+    <ButtonGroup />
+    <Icon />
+    <Card />
+    <Input />
+  </div>
+  <axe-footer />
   <!-- </div> -->
 </template>
 

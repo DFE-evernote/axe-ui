@@ -4,21 +4,9 @@ import AxeButton from 'packages/button'
 import { createApp } from 'vue/dist/vue.esm-bundler.js' // 上边的代码，组件提供了template选项，但是运行时不支持，需要引入vue/dist/vue.esm-bundler.js这个文件才能渲染template
 describe('button按钮测试用例', () => {
   it('是不是button按钮啊？', () => {
-    /* 
-    const contianer = document.createElement('div')
-    const app = createApp({
-      template: `<axe-button />`,
-      components: {
-        'axe-button': AxeButton
-      }
-    })
-    app.mount(contianer)
-    let html = app.$el.innerHTML // TypeError: Cannot read property 'innerHTML' of undefined 
-    expect(html).to.eq('button')
-    */
     const container = document.createElement('div')
     const app = createApp({
-      template: `<axeButton />`,
+      template: '<axeButton />',
       components: {
         axeButton: AxeButton
       }

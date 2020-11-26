@@ -12,16 +12,11 @@
  *
  */
 
-import Button from './src/button.vue' // 导入组件
-import 'style/button.scss' // 按需导入单个组件的样式
+import Button from './src/button.vue'
+import 'style/button.scss'
 
 Button.install = app => {
-  // 组件install属性
-  app.component(Button.name, Button) // 定义组件-vue3的写法
+  app.component(Button.name, Button)
 }
 
-export default Button // 默认导出
-
-// 导入
-// import { Button } from 'axe-ui';
-// app.use(Button)
+export default Button

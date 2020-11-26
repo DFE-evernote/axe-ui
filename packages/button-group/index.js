@@ -1,4 +1,4 @@
-import ButtonGroup from './src/buttonGroup.vue'
+import ButtonGroup from './src/button-group.vue'
 import 'style/button-group.scss'
 
 ButtonGroup.install = app => {
