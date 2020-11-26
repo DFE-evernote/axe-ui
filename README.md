@@ -47,22 +47,28 @@ npm install axe-ui -S
 ### 快速使用
 全局引入：
 ```sh
-import Vue from 'vue'
+import { createApp } from 'vue'
+import App from './App.vue'
 import Axe from 'axe-ui'
+import 'axe-ui/axe.css'
 
-Vue.use(Axe)
+createApp(App).use(AxeUI).mount('#app')
 ```
 本组件支持按需导入。你也可以像下边这样，单独导入需要的组件：
 ```sh
-import Vue from 'vue'
+import { createApp } from 'vue'
+import App from './App.vue'
 import {
   Input,
   Button
   // ...其他组件
 } from 'axe-ui'
-
-Vue.component(Input.name, Input)
-Vue.component(Button.name, Button)
+import 'axe-ui/css/input/style.css'
+import 'axe-ui/css/button/style.css'
+let app = createApp(App)
+app.component(Input.name, Input)
+app.component(Button.name, Button)
+app.mount('#app')
 ```
 ## 浏览器支持
 - 现代浏览器
