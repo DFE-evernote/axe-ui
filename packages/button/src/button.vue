@@ -37,7 +37,6 @@ export default {
       default: 'left',
       require: false,
       validator(type) {
-        console.log(type)
         if (!positionArray.includes(type)) {
           throw Error(`
             类型“position”参数值错误，值只能是

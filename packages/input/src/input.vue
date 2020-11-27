@@ -44,7 +44,6 @@ export default defineComponent({
   setup(props, ctx) {
     // 处理事件
     const handleInput = e => {
-      // console.log('input')
       const { value } = e.target
       if (!isComposing.value) {
         ctx.emit(UPDATE_MODEL_VALUE, value)
@@ -56,9 +55,8 @@ export default defineComponent({
     const handleChange = event => {
       ctx.emit('change', event.target.value)
     }
-    const handleKeydown = e => {
+    const handleKeydown = () => {
       if (isComposing.value) return
-      console.log('keyDown', e.key)
     }
 
     // 获取是DOM
@@ -72,7 +70,6 @@ export default defineComponent({
     // watch(
     //   () => props.modelValue,
     //   val => {
-    //     console.log(val)
     //   }
     // )
     // watch(
@@ -106,7 +103,6 @@ export default defineComponent({
     const handleCompositionUpdate = () => {
       isComposing.value = true
 
-      // console.log(e)
       // const text = event.target.value
       // const lastCharacter = text[text.length - 1] || ''
       // isComposing.value = !isKorean(lastCharacter)

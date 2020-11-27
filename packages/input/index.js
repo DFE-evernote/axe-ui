@@ -6,4 +6,3 @@ Input.install = app => {
 }
 
 export default Input
-
