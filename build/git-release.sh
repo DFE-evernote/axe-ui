@@ -1,14 +1,13 @@
 #!/usr/bin/env sh
-
-set -e
+git checkout dev
 
 if test -n "$(git status --porcelain)"; then
-  echo 'Unclean working tree. Commit or stash changes first.' >&2;
+  echo '工作树有修改。请先提交或隐藏更改.' >&2;
   exit 128;
 fi
 
 if ! git fetch --quiet 2>/dev/null; then
-  echo 'There was a problem fetching your branch. Run `git fetch` to see more...' >&2;
+  echo '在fetch你的分支时出现了问题。运行' git fetch '查看更多信息……' >&2;
   exit 128;
 fi
 
@@ -17,4 +16,4 @@ if test "0" != "$(git rev-list --count --left-only @'{u}'...HEAD)"; then
   exit 128;
 fi
 
-echo 'No conflicts.' >&2;
+echo '没有冲突.' >&2;

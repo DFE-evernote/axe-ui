@@ -21,11 +21,11 @@ then
   npm version $VERSION --message "[release] $VERSION"
 
   # publish
-  git push origin main
-  git push origin refs/tags/v$VERSION
+  git push axe-ui main
+  git push axe-ui refs/tags/v$VERSION
   git checkout dev
   git rebase main
-  git push origin dev
+  git push axe-ui dev
 
   if [[ $VERSION =~ "beta" ]]
   then
@@ -34,8 +34,3 @@ then
     npm publish
   fi
 fi
-
-
-
-
-
