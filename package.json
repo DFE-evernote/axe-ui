@@ -14,7 +14,7 @@
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "dist": "vue-cli-service build --target lib --name axe ./packages/index.js && vue-cli-service build --axe --no-clean",
+    "dist": "npm run lint && vue-cli-service build --target lib --name axe ./packages/index.js && vue-cli-service build --axe --no-clean",
     "test:unit": "vue-cli-service test:unit",
     "test:ui": "karma start",
     "lint": "vue-cli-service lint",
@@ -81,7 +81,17 @@
   "lint-staged": {
     "*.{js,jsx,vue}": [
       "vue-cli-service lint",
+      "eslint --fix",
+      "prettier --write",
       "git add"
+    ],
+    "*.{css,scss}": [
+      "stylelint --cache --fix",
+      "prettier --write"
+    ],
+    "*.scss": [
+      "stylelint --syntax=scss",
+      "prettier --write"
     ]
   },
   "engines": {

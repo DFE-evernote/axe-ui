@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-npm run dist # 先看能不能打包成功，没有代码校验等问题再切换分之
+npm run lint # 先校验
 
 git checkout dev
 
