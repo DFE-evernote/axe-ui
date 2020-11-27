@@ -80,6 +80,12 @@ if (isProd && args.includes('--axe')) {
       config.plugins.delete('html')
       config.plugins.delete('hmr')
       config.entryPoints.delete('app')
+      // [temp] Building for production, need to optimize
+      config.resolve.alias
+        .set('packages', resolve('packages'))
+        .set('comp', resolve('src/components'))
+        .set('axe-ui', resolve('./'))
+        .set('style', resolve('styles'))
     }
   }
 }
