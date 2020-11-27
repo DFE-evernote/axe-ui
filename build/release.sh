@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 set -e
+# login npm
+echo "🐒请输入你的NPM用户名、密码和邮箱来登录NPM账号～"
+echo    
+npm login
 
+# git main
 git checkout main
 git merge dev
 
