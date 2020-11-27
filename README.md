@@ -1,6 +1,6 @@
 <!-- # axe-ui -->
 <p align="center">
-   <img src="./axe-ui.svg">
+   <img src="https://cdn.jsdelivr.net/gh/xingorg1/xingorg1Blog/2020-11-27/1606489720679-axe-ui.svg" width="50%">
 </p>
 
 
