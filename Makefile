@@ -17,6 +17,9 @@ dev:
 dist: 
 	npm run dist
 
+commit:
+	npm run commit
+
 pub:
 	npm run pub
 
