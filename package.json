@@ -75,6 +75,9 @@
     "uppercamelcase": "^3.0.0",
     "vitepress": "^0.7.1"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "lint-staged": {
     "*.{js,jsx,vue}": [
       "vue-cli-service lint",
