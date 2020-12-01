@@ -45,12 +45,7 @@ fileSave(path.resolve(__dirname, '../../components.json'))
   .write(JSON.stringify(componentsList, null, '  '), 'utf-8')
   .end('\n')
 
-// packages入口index.js增加组件
-// const packagesEntryPath = path.join(__dirname, '../../packages/index.js')
-// const packagesEntryCont = `${fs.readFileSync(packagesEntryPath)}`;
-// console.log(packagesEntryCont, '🌹🌹🌹🌹🌹🌹🌹这里没想好怎么读写文件！🌹🌹🌹🌹🌹🌹🌹')
-// fileSave(path.resolve(__dirname, '../../packages/'))
-// .write()
+// packages入口index.js增加组件 - 根据build/build-entry.js自动生成
 
 // index.scss文件
 const scssEntryPath = path.join(__dirname, '../../styles/index.scss')

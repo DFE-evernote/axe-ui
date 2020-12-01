@@ -20,7 +20,8 @@
     "lint": "vue-cli-service lint",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "pub": "sh build/git-release.sh && sh build/release.sh"
+    "pub": "sh build/git-release.sh && sh build/release.sh",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,10 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-component": "^1.1.1",
     "chai": "^4.2.0",
+    "chalk": "^4.1.0",
+    "commitizen": "^4.2.2",
+    "conventional-changelog": "^3.1.24",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^7.1.0",
@@ -76,7 +81,8 @@
     "vitepress": "^0.7.1"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "node build/bin/verify-commit-msg.js"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
@@ -93,6 +99,11 @@
       "stylelint --syntax=scss",
       "prettier --write"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "engines": {
     "node": ">=8.9.1",
