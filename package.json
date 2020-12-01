@@ -1,6 +1,6 @@
 {
   "name": "axe-ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Component Library for Vue3.js.",
   "main": "./dist/axe.umd.min.js",
   "files": [
