@@ -14,7 +14,7 @@ if ! git fetch --quiet 2>/dev/null; then
 fi
 
 if test "0" != "$(git rev-list --count --left-only @'{u}'...HEAD)"; then
-  echo 'Remote history differ. Please pull changes.' >&2;
+  echo '远程代码有改动，请pull修改.' >&2;
   exit 128;
 fi
 
