@@ -85,19 +85,10 @@
     "commit-msg": "node build/bin/verify-commit-msg.js"
   },
   "lint-staged": {
-    "*.{js,jsx,vue}": [
-      "vue-cli-service lint",
+    "*.js": [
       "eslint --fix",
       "prettier --write",
       "git add"
-    ],
-    "*.{css,scss}": [
-      "stylelint --cache --fix",
-      "prettier --write"
-    ],
-    "*.scss": [
-      "stylelint --syntax=scss",
-      "prettier --write"
     ]
   },
   "config": {
