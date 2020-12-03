@@ -21,7 +21,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "pub": "sh build/git-release.sh && sh build/release.sh",
-    "release:note": "node scripts/gen-release-note.js",
+    "release:note": "node build/bin/gen-release-note.js",
     "commit": "git add . && git-cz && git push"
   },
   "repository": {
