@@ -20,7 +20,7 @@ if (!commitRE.test(msg)) {
         `fix(v-model): handle events on blur (close #28)`
       )}\n\n` +
       chalk.red(
-        `  可以查看 .github/COMMIT_CONVENTION.md 来获取更详细的说明信息.\n`
+        `  请查看 git commit 提交规范：https://github.com/woai3c/Front-end-articles/blob/master/git%20commit%20style.md.\n`
       ) +
       chalk.red(
         `  你也可以使用 ${chalk.cyan(
