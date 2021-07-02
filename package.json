@@ -2,7 +2,23 @@
   "name": "axe-ui",
   "version": "0.2.2",
   "description": "A Component Library for Vue3.js.",
+  "author": "axe",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "commit": "git add . && git-cz && git push",
+    "dev": "npm run serve",
+    "dist": "npm run lint && vue-cli-service build --target lib --name axe ./packages/index.js && vue-cli-service build --axe --no-clean",
+    "docs:build": "vitepress build docs",
+    "docs:dev": "vitepress dev docs",
+    "pub": "sh build/git-release.sh && sh build/release.sh",
+    "release:note": "node build/bin/gen-release-note.js",
+    "test:ui": "karma start"
+  },
   "main": "./dist/axe.umd.min.js",
+  "unpkg": "dist/axe.umd.js",
   "files": [
     "dist",
     "packages",
@@ -10,47 +26,24 @@
     "CHANGELOG",
     "LICENSE"
   ],
-  "scripts": {
-    "dev": "npm run serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "dist": "npm run lint && vue-cli-service build --target lib --name axe ./packages/index.js && vue-cli-service build --axe --no-clean",
-    "test:unit": "vue-cli-service test:unit",
-    "test:ui": "karma start",
-    "lint": "vue-cli-service lint",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "pub": "sh build/git-release.sh && sh build/release.sh",
-    "release:note": "node build/bin/gen-release-note.js",
-    "commit": "git add . && git-cz && git push"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DFE-evernote/axe-ui.git"
-  },
-  "unpkg": "dist/axe.umd.js",
-  "homepage": "",
-  "keywords": [
-    "axe",
-    "vue3",
-    "components"
-  ],
-  "author": "axe",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DFE-evernote/axe-ui/issues"
-  },
   "dependencies": {
     "core-js": "^3.15.2",
-    "vue": "^3.1.3"
+    "vue": "^3.1.3",
+    "vue-class-component": "^8.0.0-0"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^5.2.4",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-plugin-typescript": "^4.5.13",
     "@vue/cli-plugin-unit-mocha": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
     "@vue/compiler-sfc": "^3.1.3",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^2.0.0-rc.9",
     "babel-eslint": "^10.1.0",
     "babel-plugin-component": "^1.1.1",
@@ -78,19 +71,12 @@
     "sass": "^1.35.1",
     "sass-loader": "^8.0.2",
     "select-version-cli": "0.0.2",
+    "typescript": "~4.1.5",
     "uppercamelcase": "^3.0.0",
     "vitepress": "^0.7.1"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "node build/bin/verify-commit-msg.js"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ]
+  "bugs": {
+    "url": "https://github.com/DFE-evernote/axe-ui/issues"
   },
   "config": {
     "commitizen": {
@@ -100,5 +86,27 @@
   "engines": {
     "node": ">=8.9.1",
     "npm": ">=5.5.1"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node build/bin/verify-commit-msg.js"
+  },
+  "homepage": "",
+  "keywords": [
+    "axe",
+    "vue3",
+    "components"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DFE-evernote/axe-ui.git"
   }
 }
