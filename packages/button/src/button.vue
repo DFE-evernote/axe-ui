@@ -37,14 +37,10 @@ export default {
       default: 'left',
       require: false,
       validator(type) {
-        // FIXME: [Vue warn]: Invalid prop: custom validator check failed for prop "position".  at <AxeButton icon="axe-icon-love" type="danger" style= {float: "right"}  ... > 
         if (!positionArray.includes(type)) {
-          throw Error(`
-            类型“position”参数值错误，值只能是
-            ${positionArray.join('、')}
-            中的一种。
-          `)
+          throw Error(`属性“position”传入的值错误，值只能是${positionArray.join('、')}中的一种。`)
         }
+        return true
       }
     },
     disabled: Boolean
