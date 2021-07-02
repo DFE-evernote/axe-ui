@@ -9,17 +9,29 @@
   </button>
 </template>
 
-<script>
+<script lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
 const typeArray = ['default', 'primary', 'success', 'info', 'warning', 'danger']
 const positionArray = ['left', 'right']
+
+type IButtonType = PropType<'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'>
+type IButtonPosi = PropType<'left' | 'right'>
+interface IButtonProps {
+  type: string
+  icon?: string
+  loading: boolean
+  position: string
+  disabled: boolean
+}
 export default {
   name: 'AxeButton', // 重点是name命名，用于注册组件时使用name属性，也用于使用组件时标签名带有“axe-”的前缀，如<axe-button>
   props: {
+    // size // TODO: button按钮增加size属性
     type: {
-      type: String,
+      type: String as IButtonType,
       default: 'default',
-      validator(type) {
+      validator(type: string) {
         if (!typeArray.includes(type)) {
           throw Error(
             '类型“type”参数值错误，值只能是' +
@@ -33,23 +45,19 @@ export default {
     icon: String,
     loading: Boolean,
     position: {
-      type: String,
+      type: String as IButtonPosi,
       default: 'left',
       require: false,
-      validator(type) {
-        // FIXME: [Vue warn]: Invalid prop: custom validator check failed for prop "position".  at <AxeButton icon="axe-icon-love" type="danger" style= {float: "right"}  ... > 
+      validator(type: string) {
         if (!positionArray.includes(type)) {
-          throw Error(`
-            类型“position”参数值错误，值只能是
-            ${positionArray.join('、')}
-            中的一种。
-          `)
+          throw Error(`属性“position”传入的值错误，值只能是${positionArray.join('、')}中的一种。`)
         }
+        return true
       }
     },
     disabled: Boolean
   },
-  setup(props) {
+  setup(props: IButtonProps) {
     const classify = computed(() => [
       'axe-button',
       `axe-button-${props.type}`,
