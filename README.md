@@ -47,7 +47,7 @@ npm install axe-ui -S
 ```
 ### 快速使用
 全局引入：
-```sh
+```js
 import { createApp } from 'vue'
 import App from './App.vue'
 import Axe from 'axe-ui'
