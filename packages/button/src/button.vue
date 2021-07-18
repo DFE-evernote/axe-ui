@@ -1,5 +1,9 @@
 <template>
-  <button :class="classify" :disabled="disabled || loading" @click="handleClick">
+  <button
+    :class="classify"
+    :disabled="disabled || loading"
+    @click="handleClick"
+  >
     <!-- 类名设置统一为“axe-”的前缀 -->
     <i :class="['icon', icon]" v-if="icon && !loading" />
     <i class="icon axe-icon-loading" v-if="!icon && loading" />
@@ -15,7 +19,9 @@ import type { PropType } from 'vue'
 const typeArray = ['default', 'primary', 'success', 'info', 'warning', 'danger']
 const positionArray = ['left', 'right']
 
-type IButtonType = PropType<'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'>
+type IButtonType = PropType<
+  'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
+>
 type IButtonPosi = PropType<'left' | 'right'>
 interface IButtonProps {
   type: string
@@ -50,7 +56,11 @@ export default {
       require: false,
       validator(type: string) {
         if (!positionArray.includes(type)) {
-          throw Error(`属性“position”传入的值错误，值只能是${positionArray.join('、')}中的一种。`)
+          throw Error(
+            `属性“position”传入的值错误，值只能是${positionArray.join(
+              '、'
+            )}中的一种。`
+          )
         }
         return true
       }
@@ -58,7 +68,7 @@ export default {
     disabled: Boolean
   },
   emits: ['click'],
-  setup(props: IButtonProps, ctx:any) {
+  setup(props: IButtonProps, ctx: any) {
     const classify = computed(() => [
       'axe-button',
       `axe-button-${props.type}`,
@@ -66,7 +76,7 @@ export default {
     ])
 
     const handleClick = (e: MouseEvent) => {
-      ctx.emit("click", e);
+      ctx.emit('click', e)
     }
     return {
       classify,
