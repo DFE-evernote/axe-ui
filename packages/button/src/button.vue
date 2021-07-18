@@ -1,5 +1,5 @@
 <template>
-  <button :class="classify" :disabled="disabled || loading">
+  <button :class="classify" :disabled="disabled || loading" @click="handleClick">
     <!-- 类名设置统一为“axe-”的前缀 -->
     <i :class="['icon', icon]" v-if="icon && !loading" />
     <i class="icon axe-icon-loading" v-if="!icon && loading" />
@@ -57,14 +57,20 @@ export default {
     },
     disabled: Boolean
   },
-  setup(props: IButtonProps) {
+  emits: ['click'],
+  setup(props: IButtonProps, ctx:any) {
     const classify = computed(() => [
       'axe-button',
       `axe-button-${props.type}`,
       props.icon && `axe-button-${props.position}`
     ])
+
+    const handleClick = (e: MouseEvent) => {
+      ctx.emit("click", e);
+    }
     return {
-      classify
+      classify,
+      handleClick
     }
   }
 }
