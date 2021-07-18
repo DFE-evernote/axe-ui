@@ -34,11 +34,12 @@
 
 
 <div align="center" style="margin-bottom: 50px">
-   基于vue-next的一套PC端前端UI组件库
+   Axe-ui是一套基于Vue3.0 + TS的PC端开源组件库。
+   <br>欢迎大家一起参与共建。一起学习一起成长 ~ !
 </div>
 
 ## 常用链接
-- [FQA]()
+- [常见问题 - FQA](https://www.yuque.com/axe-ui/docs/fqa)
 
 ## 安装
 ```sh
@@ -79,24 +80,30 @@ app.mount('#app')
 - IE 11+
 
 ## 开发文档
-- [中文文档]()
+- [官方文档](https://www.yuque.com/axe-ui/docs)
 
 ## 更新日志
-[release notes](https://github.com/DFE-evernote/axe-ui/releases)
+- [release notes](https://github.com/DFE-evernote/axe-ui/releases)
 
 ## 参与贡献
-在拉取代码前请先查看我们的[贡献文档](https://github.com/DFE-evernote/axe-ui/issues/19)
+Axe强烈欢迎你的参与，在编写代码前，烦请请先阅读我们的[贡献指南](https://github.com/DFE-evernote/axe-ui/issues/19)。他记录了所有的贡献须知，可以让你更快上手源码库。
 
 ## 特别感谢
 下面的贡献者让组件库变得更好，感谢[所有为Axe做出贡献的人](https://github.com/DFE-evernote/axe-ui/graphs/contributors)!
 
 以贡献时间为序，感谢：  
 
--[Otto](https://github.com/Otto-J)
+- [@Otto](https://github.com/Otto-J)
+- [@hefeng6500](https://github.com/hefeng6500)
 
 
 
 ## 加入我们
-[《加入axe-ui》](https://www.yuque.com/docs/share/03c22f3e-e1d0-4b8f-8f73-33921c61e8a9) 
+- [《加入axe-ui》](https://www.yuque.com/docs/share/03c22f3e-e1d0-4b8f-8f73-33921c61e8a9) 
+
+- 微信交流群：
+![axe-ui组件研发群](https://cdn.jsdelivr.net/gh/xingorg1/xingorg1Blog/2021-7-18/1626620750240-image.png)
+
+
 ## LICENSE
 [MIT](https://github.com/DFE-evernote/axe-ui/blob/main/LICENSE)
