@@ -190,7 +190,7 @@
     },
     '1cdc': function(t, n, e) {
       var r = e('342f')
-      t.exports = /(iphone|ipod|ipad).*applewebkit/i.test(r)
+      t.exports = /(?:iphone|ipod|ipad).*applewebkit/i.test(r)
     },
     '1d80': function(t, n) {
       t.exports = function(t) {
@@ -428,7 +428,7 @@
         a = u && u.versions,
         f = a && a.v8
       f
-        ? ((r = f.split('.')), (o = r[0] + r[1]))
+        ? ((r = f.split('.')), (o = r[0] < 4 ? 1 : r[0] + r[1]))
         : i &&
           ((r = i.match(/Edge\/(\d+)/)),
           (!r || r[1] >= 74) &&
@@ -522,11 +522,17 @@
       }
     },
     4930: function(t, n, e) {
-      var r = e('d039')
+      var r = e('2d00'),
+        o = e('d039')
       t.exports =
         !!Object.getOwnPropertySymbols &&
-        !r(function() {
-          return !String(Symbol())
+        !o(function() {
+          var t = Symbol()
+          return (
+            !String(t) ||
+            !(Object(t) instanceof Symbol) ||
+            (!Symbol.sham && r && r < 41)
+          )
         })
     },
     '4d64': function(t, n, e) {
@@ -556,11 +562,14 @@
         return t > 0 ? o(r(t), 9007199254740991) : 0
       }
     },
-    5135: function(t, n) {
-      var e = {}.hasOwnProperty
-      t.exports = function(t, n) {
-        return e.call(t, n)
-      }
+    5135: function(t, n, e) {
+      var r = e('7b0b'),
+        o = {}.hasOwnProperty
+      t.exports =
+        Object.hasOwn ||
+        function(t, n) {
+          return o.call(r(t), n)
+        }
     },
     5692: function(t, n, e) {
       var r = e('c430'),
@@ -568,9 +577,9 @@
       ;(t.exports = function(t, n) {
         return o[t] || (o[t] = void 0 !== n ? n : {})
       })('versions', []).push({
-        version: '3.7.0',
+        version: '3.15.2',
         mode: r ? 'pure' : 'global',
-        copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
+        copyright: '© 2021 Denis Pushkarev (zloirock.ru)'
       })
     },
     '56ef': function(t, n, e) {
@@ -600,6 +609,9 @@
       var r = e('c6b6'),
         o = e('da84')
       t.exports = 'process' == r(o.process)
+    },
+    6069: function(t, n) {
+      t.exports = 'object' == typeof window
     },
     '60da': function(t, n, e) {
       'use strict'
@@ -675,11 +687,12 @@
         l = e('c6cd'),
         p = e('f772'),
         d = e('d012'),
-        v = u.WeakMap,
-        b = function(t) {
+        v = 'Object already initialized',
+        b = u.WeakMap,
+        y = function(t) {
           return c(t) ? o(t) : r(t, {})
         },
-        y = function(t) {
+        h = function(t) {
           return function(n) {
             var e
             if (!a(n) || (e = o(n)).type !== t)
@@ -687,34 +700,36 @@
             return e
           }
         }
-      if (i) {
-        var h = l.state || (l.state = new v()),
-          g = h.get,
-          x = h.has,
-          m = h.set
+      if (i || l.state) {
+        var g = l.state || (l.state = new b()),
+          x = g.get,
+          m = g.has,
+          j = g.set
         ;(r = function(t, n) {
-          return (n.facade = t), m.call(h, t, n), n
+          if (m.call(g, t)) throw new TypeError(v)
+          return (n.facade = t), j.call(g, t, n), n
         }),
           (o = function(t) {
-            return g.call(h, t) || {}
+            return x.call(g, t) || {}
           }),
           (c = function(t) {
-            return x.call(h, t)
+            return m.call(g, t)
           })
       } else {
-        var j = p('state')
-        ;(d[j] = !0),
+        var w = p('state')
+        ;(d[w] = !0),
           (r = function(t, n) {
-            return (n.facade = t), f(t, j, n), n
+            if (s(t, w)) throw new TypeError(v)
+            return (n.facade = t), f(t, w, n), n
           }),
           (o = function(t) {
-            return s(t, j) ? t[j] : {}
+            return s(t, w) ? t[w] : {}
           }),
           (c = function(t) {
-            return s(t, j)
+            return s(t, w)
           })
       }
-      t.exports = { set: r, get: o, has: c, enforce: b, getterFor: y }
+      t.exports = { set: r, get: o, has: c, enforce: y, getterFor: h }
     },
     '6eeb': function(t, n, e) {
       var r = e('da84'),
@@ -873,8 +888,8 @@
               return new e(this)
             }
           },
-          T = n + ' Iterator',
-          k = !1,
+          k = n + ' Iterator',
+          T = !1,
           _ = t.prototype,
           A = _[y] || _['@@iterator'] || (d && _[d]),
           I = (!b && A) || E(d),
@@ -887,12 +902,12 @@
               (l ||
                 c(O) === v ||
                 (i ? i(O, v) : 'function' != typeof O[y] && a(O, y, m)),
-              u(O, T, !0, !0),
-              l && (p[T] = m))),
+              u(O, k, !0, !0),
+              l && (p[k] = m))),
           d == g &&
             A &&
             A.name !== g &&
-            ((k = !0),
+            ((T = !0),
             (I = function() {
               return A.call(this)
             })),
@@ -901,8 +916,8 @@
           d)
         )
           if (((S = { values: E(g), keys: j ? I : E(h), entries: E(x) }), w))
-            for (P in S) (b || k || !(P in _)) && f(_, P, S[P])
-          else r({ target: n, proto: !0, forced: b || k }, S)
+            for (P in S) (b || T || !(P in _)) && f(_, P, S[P])
+          else r({ target: n, proto: !0, forced: b || T }, S)
         return S
       }
     },
@@ -949,7 +964,7 @@
     '8b09': function(t, n, e) {
       'use strict'
       e.r(n)
-      e('b0c0'), e('e260'), e('e6cf'), e('cca6'), e('a79d')
+      e('e260'), e('e6cf'), e('cca6'), e('a79d'), e('b0c0')
       var r = e('8bbf'),
         o = { key: 1, class: 'icon axe-icon-loading' },
         c = { key: 2 }
@@ -958,7 +973,15 @@
           Object(r['openBlock'])(),
           Object(r['createBlock'])(
             'button',
-            { class: i.classify, disabled: e.disabled || e.loading },
+            {
+              class: i.classify,
+              disabled: e.disabled || e.loading,
+              onClick:
+                n[1] ||
+                (n[1] = function() {
+                  return i.handleClick && i.handleClick.apply(i, arguments)
+                })
+            },
             [
               e.icon && !e.loading
                 ? (Object(r['openBlock'])(),
@@ -1012,24 +1035,29 @@
               validator: function(t) {
                 if (!a.includes(t))
                   throw Error(
-                    '\n            类型“position”参数值错误，值只能是\n            '.concat(
+                    '属性“position”传入的值错误，值只能是'.concat(
                       a.join('、'),
-                      '\n            中的一种。\n          '
+                      '中的一种。'
                     )
                   )
+                return !0
               }
             },
             disabled: Boolean
           },
-          setup: function(t) {
-            var n = Object(r['computed'])(function() {
-              return [
-                'axe-button',
-                'axe-button-'.concat(t.type),
-                t.icon && 'axe-button-'.concat(t.position)
-              ]
-            })
-            return { classify: n }
+          emits: ['click'],
+          setup: function(t, n) {
+            var e = Object(r['computed'])(function() {
+                return [
+                  'axe-button',
+                  'axe-button-'.concat(t.type),
+                  t.icon && 'axe-button-'.concat(t.position)
+                ]
+              }),
+              o = function(t) {
+                n.emit('click', t)
+              }
+            return { classify: e, handleClick: o }
           }
         }
       f.render = i
@@ -1140,6 +1168,10 @@
         }
       )
     },
+    a4b4: function(t, n, e) {
+      var r = e('342f')
+      t.exports = /web0s(?!.*chrome)/i.test(r)
+    },
     a640: function(t, n, e) {
       'use strict'
       var r = e('d039')
@@ -1182,60 +1214,37 @@
           i(function() {
             c.prototype['finally'].call({ then: function() {} }, function() {})
           })
-      r(
-        { target: 'Promise', proto: !0, real: !0, forced: l },
-        {
-          finally: function(t) {
-            var n = a(this, u('Promise')),
-              e = 'function' == typeof t
-            return this.then(
-              e
-                ? function(e) {
-                    return f(n, t()).then(function() {
-                      return e
-                    })
-                  }
-                : t,
-              e
-                ? function(e) {
-                    return f(n, t()).then(function() {
-                      throw e
-                    })
-                  }
-                : t
-            )
+      if (
+        (r(
+          { target: 'Promise', proto: !0, real: !0, forced: l },
+          {
+            finally: function(t) {
+              var n = a(this, u('Promise')),
+                e = 'function' == typeof t
+              return this.then(
+                e
+                  ? function(e) {
+                      return f(n, t()).then(function() {
+                        return e
+                      })
+                    }
+                  : t,
+                e
+                  ? function(e) {
+                      return f(n, t()).then(function() {
+                        throw e
+                      })
+                    }
+                  : t
+              )
+            }
           }
-        }
-      ),
-        o ||
-          'function' != typeof c ||
-          c.prototype['finally'] ||
-          s(c.prototype, 'finally', u('Promise').prototype['finally'])
-    },
-    ae40: function(t, n, e) {
-      var r = e('83ab'),
-        o = e('d039'),
-        c = e('5135'),
-        i = Object.defineProperty,
-        u = {},
-        a = function(t) {
-          throw t
-        }
-      t.exports = function(t, n) {
-        if (c(u, t)) return u[t]
-        n || (n = {})
-        var e = [][t],
-          f = !!c(n, 'ACCESSORS') && n.ACCESSORS,
-          s = c(n, 0) ? n[0] : a,
-          l = c(n, 1) ? n[1] : void 0
-        return (u[t] =
-          !!e &&
-          !o(function() {
-            if (f && !r) return !0
-            var t = { length: -1 }
-            f ? i(t, 1, { enumerable: !0, get: a }) : (t[1] = 1),
-              e.call(t, s, l)
-          }))
+        ),
+        !o && 'function' == typeof c)
+      ) {
+        var p = u('Promise').prototype['finally']
+        c.prototype['finally'] !== p &&
+          s(c.prototype, 'finally', p, { unsafe: !0 })
       }
     },
     ae93: function(t, n, e) {
@@ -1243,24 +1252,31 @@
       var r,
         o,
         c,
-        i = e('e163'),
-        u = e('9112'),
-        a = e('5135'),
-        f = e('b622'),
-        s = e('c430'),
-        l = f('iterator'),
-        p = !1,
-        d = function() {
+        i = e('d039'),
+        u = e('e163'),
+        a = e('9112'),
+        f = e('5135'),
+        s = e('b622'),
+        l = e('c430'),
+        p = s('iterator'),
+        d = !1,
+        v = function() {
           return this
         }
       ;[].keys &&
         ((c = [].keys()),
         'next' in c
-          ? ((o = i(i(c))), o !== Object.prototype && (r = o))
-          : (p = !0)),
-        void 0 == r && (r = {}),
-        s || a(r, l) || u(r, l, d),
-        (t.exports = { IteratorPrototype: r, BUGGY_SAFARI_ITERATORS: p })
+          ? ((o = u(u(c))), o !== Object.prototype && (r = o))
+          : (d = !0))
+      var b =
+        void 0 == r ||
+        i(function() {
+          var t = {}
+          return r[p].call(t) !== t
+        })
+      b && (r = {}),
+        (l && !b) || f(r, p) || a(r, p, v),
+        (t.exports = { IteratorPrototype: r, BUGGY_SAFARI_ITERATORS: d })
     },
     b0c0: function(t, n, e) {
       var r = e('83ab'),
@@ -1295,17 +1311,18 @@
         p = e('06cf').f,
         d = e('2cf4').set,
         v = e('1cdc'),
-        b = e('605d'),
-        y = l.MutationObserver || l.WebKitMutationObserver,
-        h = l.document,
-        g = l.process,
-        x = l.Promise,
-        m = p(l, 'queueMicrotask'),
-        j = m && m.value
-      j ||
+        b = e('a4b4'),
+        y = e('605d'),
+        h = l.MutationObserver || l.WebKitMutationObserver,
+        g = l.document,
+        x = l.process,
+        m = l.Promise,
+        j = p(l, 'queueMicrotask'),
+        w = j && j.value
+      w ||
         ((r = function() {
           var t, n
-          b && (t = g.domain) && t.exit()
+          y && (t = x.domain) && t.exit()
           while (o) {
             ;(n = o.fn), (o = o.next)
             try {
@@ -1316,28 +1333,29 @@
           }
           ;(c = void 0), t && t.enter()
         }),
-        !v && !b && y && h
-          ? ((u = !0),
-            (a = h.createTextNode('')),
-            new y(r).observe(a, { characterData: !0 }),
+        v || y || b || !h || !g
+          ? m && m.resolve
+            ? ((f = m.resolve(void 0)),
+              (f.constructor = m),
+              (s = f.then),
+              (i = function() {
+                s.call(f, r)
+              }))
+            : (i = y
+                ? function() {
+                    x.nextTick(r)
+                  }
+                : function() {
+                    d.call(l, r)
+                  })
+          : ((u = !0),
+            (a = g.createTextNode('')),
+            new h(r).observe(a, { characterData: !0 }),
             (i = function() {
               a.data = u = !u
-            }))
-          : x && x.resolve
-          ? ((f = x.resolve(void 0)),
-            (s = f.then),
-            (i = function() {
-              s.call(f, r)
-            }))
-          : (i = b
-              ? function() {
-                  g.nextTick(r)
-                }
-              : function() {
-                  d.call(l, r)
-                })),
+            }))),
         (t.exports =
-          j ||
+          w ||
           function(t) {
             var n = { fn: t, next: void 0 }
             c && (c.next = n), o || ((o = n), i()), (c = n)
@@ -1355,7 +1373,8 @@
         l = a ? s : (s && s.withoutSetter) || i
       t.exports = function(t) {
         return (
-          c(f, t) || (u && c(s, t) ? (f[t] = s[t]) : (f[t] = l('Symbol.' + t))),
+          (c(f, t) && (u || 'string' == typeof f[t])) ||
+            (u && c(s, t) ? (f[t] = s[t]) : (f[t] = l('Symbol.' + t))),
           f[t]
         )
       }
@@ -1421,11 +1440,9 @@
       'use strict'
       var r = e('23e7'),
         o = e('4d64').includes,
-        c = e('44d2'),
-        i = e('ae40'),
-        u = i('indexOf', { ACCESSORS: !0, 1: 0 })
+        c = e('44d2')
       r(
-        { target: 'Array', proto: !0, forced: !u },
+        { target: 'Array', proto: !0 },
         {
           includes: function(t) {
             return o(this, t, arguments.length > 1 ? arguments[1] : void 0)
@@ -1668,81 +1685,89 @@
         l = e('fea9'),
         p = e('6eeb'),
         d = e('e2cc'),
-        v = e('d44e'),
-        b = e('2626'),
-        y = e('861d'),
-        h = e('1c0b'),
-        g = e('19aa'),
-        x = e('8925'),
-        m = e('2266'),
-        j = e('1c7e'),
-        w = e('4840'),
-        O = e('2cf4').set,
-        S = e('b575'),
-        P = e('cdf9'),
-        E = e('44de'),
+        v = e('d2bb'),
+        b = e('d44e'),
+        y = e('2626'),
+        h = e('861d'),
+        g = e('1c0b'),
+        x = e('19aa'),
+        m = e('8925'),
+        j = e('2266'),
+        w = e('1c7e'),
+        O = e('4840'),
+        S = e('2cf4').set,
+        P = e('b575'),
+        E = e('cdf9'),
+        k = e('44de'),
         T = e('f069'),
-        k = e('e667'),
-        _ = e('69f3'),
-        A = e('94ca'),
-        I = e('b622'),
-        M = e('605d'),
-        R = e('2d00'),
-        C = I('species'),
-        B = 'Promise',
-        F = _.get,
-        N = _.set,
-        D = _.getterFor(B),
-        L = l,
-        q = f.TypeError,
-        G = f.document,
-        z = f.process,
-        U = s('fetch'),
-        V = T.f,
-        W = V,
-        Y = !!(G && G.createEvent && f.dispatchEvent),
-        K = 'function' == typeof PromiseRejectionEvent,
-        $ = 'unhandledrejection',
-        H = 'rejectionhandled',
-        X = 0,
-        J = 1,
-        Q = 2,
-        Z = 1,
-        tt = 2,
-        nt = A(B, function() {
-          var t = x(L) !== String(L)
-          if (!t) {
-            if (66 === R) return !0
-            if (!M && !K) return !0
-          }
-          if (a && !L.prototype['finally']) return !0
-          if (R >= 51 && /native code/.test(L)) return !1
-          var n = L.resolve(1),
-            e = function(t) {
+        _ = e('e667'),
+        A = e('69f3'),
+        I = e('94ca'),
+        M = e('b622'),
+        C = e('6069'),
+        R = e('605d'),
+        B = e('2d00'),
+        F = M('species'),
+        N = 'Promise',
+        D = A.get,
+        L = A.set,
+        q = A.getterFor(N),
+        z = l && l.prototype,
+        G = l,
+        U = z,
+        V = f.TypeError,
+        W = f.document,
+        Y = f.process,
+        K = T.f,
+        $ = K,
+        H = !!(W && W.createEvent && f.dispatchEvent),
+        X = 'function' == typeof PromiseRejectionEvent,
+        J = 'unhandledrejection',
+        Q = 'rejectionhandled',
+        Z = 0,
+        tt = 1,
+        nt = 2,
+        et = 1,
+        rt = 2,
+        ot = !1,
+        ct = I(N, function() {
+          var t = m(G),
+            n = t !== String(G)
+          if (!n && 66 === B) return !0
+          if (a && !U['finally']) return !0
+          if (B >= 51 && /native code/.test(t)) return !1
+          var e = new G(function(t) {
+              t(1)
+            }),
+            r = function(t) {
               t(
                 function() {},
                 function() {}
               )
             },
-            r = (n.constructor = {})
-          return (r[C] = e), !(n.then(function() {}) instanceof e)
+            o = (e.constructor = {})
+          return (
+            (o[F] = r),
+            (ot = e.then(function() {}) instanceof r),
+            !ot || (!n && C && !X)
+          )
         }),
-        et =
-          nt ||
-          !j(function(t) {
-            L.all(t)['catch'](function() {})
+        it =
+          ct ||
+          !w(function(t) {
+            G.all(t)['catch'](function() {})
           }),
-        rt = function(t) {
+        ut = function(t) {
           var n
-          return !(!y(t) || 'function' != typeof (n = t.then)) && n
+          return !(!h(t) || 'function' != typeof (n = t.then)) && n
         },
-        ot = function(t, n) {
+        at = function(t, n) {
           if (!t.notified) {
             t.notified = !0
             var e = t.reactions
-            S(function() {
+            P(function() {
               var r = t.value,
-                o = t.state == J,
+                o = t.state == tt,
                 c = 0
               while (e.length > c) {
                 var i,
@@ -1755,15 +1780,15 @@
                   d = f.domain
                 try {
                   s
-                    ? (o || (t.rejection === tt && at(t), (t.rejection = Z)),
+                    ? (o || (t.rejection === rt && pt(t), (t.rejection = et)),
                       !0 === s
                         ? (i = r)
                         : (d && d.enter(),
                           (i = s(r)),
                           d && (d.exit(), (a = !0))),
                       i === f.promise
-                        ? p(q('Promise-chain cycle'))
-                        : (u = rt(i))
+                        ? p(V('Promise-chain cycle'))
+                        : (u = ut(i))
                         ? u.call(i, l, p)
                         : l(i))
                     : p(r)
@@ -1771,116 +1796,118 @@
                   d && !a && d.exit(), p(v)
                 }
               }
-              ;(t.reactions = []), (t.notified = !1), n && !t.rejection && it(t)
+              ;(t.reactions = []), (t.notified = !1), n && !t.rejection && st(t)
             })
           }
         },
-        ct = function(t, n, e) {
+        ft = function(t, n, e) {
           var r, o
-          Y
-            ? ((r = G.createEvent('Event')),
+          H
+            ? ((r = W.createEvent('Event')),
               (r.promise = n),
               (r.reason = e),
               r.initEvent(t, !1, !0),
               f.dispatchEvent(r))
             : (r = { promise: n, reason: e }),
-            !K && (o = f['on' + t])
+            !X && (o = f['on' + t])
               ? o(r)
-              : t === $ && E('Unhandled promise rejection', e)
+              : t === J && k('Unhandled promise rejection', e)
         },
-        it = function(t) {
-          O.call(f, function() {
+        st = function(t) {
+          S.call(f, function() {
             var n,
               e = t.facade,
               r = t.value,
-              o = ut(t)
+              o = lt(t)
             if (
               o &&
-              ((n = k(function() {
-                M ? z.emit('unhandledRejection', r, e) : ct($, e, r)
+              ((n = _(function() {
+                R ? Y.emit('unhandledRejection', r, e) : ft(J, e, r)
               })),
-              (t.rejection = M || ut(t) ? tt : Z),
+              (t.rejection = R || lt(t) ? rt : et),
               n.error)
             )
               throw n.value
           })
         },
-        ut = function(t) {
-          return t.rejection !== Z && !t.parent
+        lt = function(t) {
+          return t.rejection !== et && !t.parent
         },
-        at = function(t) {
-          O.call(f, function() {
+        pt = function(t) {
+          S.call(f, function() {
             var n = t.facade
-            M ? z.emit('rejectionHandled', n) : ct(H, n, t.value)
+            R ? Y.emit('rejectionHandled', n) : ft(Q, n, t.value)
           })
         },
-        ft = function(t, n, e) {
+        dt = function(t, n, e) {
           return function(r) {
             t(n, r, e)
           }
         },
-        st = function(t, n, e) {
+        vt = function(t, n, e) {
           t.done ||
             ((t.done = !0),
             e && (t = e),
             (t.value = n),
-            (t.state = Q),
-            ot(t, !0))
+            (t.state = nt),
+            at(t, !0))
         },
-        lt = function(t, n, e) {
+        bt = function(t, n, e) {
           if (!t.done) {
             ;(t.done = !0), e && (t = e)
             try {
-              if (t.facade === n) throw q("Promise can't be resolved itself")
-              var r = rt(n)
+              if (t.facade === n) throw V("Promise can't be resolved itself")
+              var r = ut(n)
               r
-                ? S(function() {
+                ? P(function() {
                     var e = { done: !1 }
                     try {
-                      r.call(n, ft(lt, e, t), ft(st, e, t))
+                      r.call(n, dt(bt, e, t), dt(vt, e, t))
                     } catch (o) {
-                      st(e, o, t)
+                      vt(e, o, t)
                     }
                   })
-                : ((t.value = n), (t.state = J), ot(t, !1))
+                : ((t.value = n), (t.state = tt), at(t, !1))
             } catch (o) {
-              st({ done: !1 }, o, t)
+              vt({ done: !1 }, o, t)
             }
           }
         }
-      nt &&
-        ((L = function(t) {
-          g(this, L, B), h(t), r.call(this)
-          var n = F(this)
+      if (
+        ct &&
+        ((G = function(t) {
+          x(this, G, N), g(t), r.call(this)
+          var n = D(this)
           try {
-            t(ft(lt, n), ft(st, n))
+            t(dt(bt, n), dt(vt, n))
           } catch (e) {
-            st(n, e)
+            vt(n, e)
           }
         }),
+        (U = G.prototype),
         (r = function(t) {
-          N(this, {
-            type: B,
+          L(this, {
+            type: N,
             done: !1,
             notified: !1,
             parent: !1,
             reactions: [],
             rejection: !1,
-            state: X,
+            state: Z,
             value: void 0
           })
         }),
-        (r.prototype = d(L.prototype, {
+        (r.prototype = d(U, {
           then: function(t, n) {
-            var e = D(this),
-              r = V(w(this, L))
+            var e = q(this),
+              r = K(O(this, G))
             return (
               (r.ok = 'function' != typeof t || t),
               (r.fail = 'function' == typeof n && n),
-              (r.domain = M ? z.domain : void 0),
+              (r.domain = R ? Y.domain : void 0),
               (e.parent = !0),
               e.reactions.push(r),
-              e.state != X && ot(e, !1),
+              e.state != Z && at(e, !1),
               r.promise
             )
           },
@@ -1890,72 +1917,70 @@
         })),
         (o = function() {
           var t = new r(),
-            n = F(t)
+            n = D(t)
           ;(this.promise = t),
-            (this.resolve = ft(lt, n)),
-            (this.reject = ft(st, n))
+            (this.resolve = dt(bt, n)),
+            (this.reject = dt(vt, n))
         }),
-        (T.f = V = function(t) {
-          return t === L || t === c ? new o(t) : W(t)
+        (T.f = K = function(t) {
+          return t === G || t === c ? new o(t) : $(t)
         }),
-        a ||
-          'function' != typeof l ||
-          ((i = l.prototype.then),
-          p(
-            l.prototype,
-            'then',
-            function(t, n) {
-              var e = this
-              return new L(function(t, n) {
-                i.call(e, t, n)
-              }).then(t, n)
-            },
-            { unsafe: !0 }
-          ),
-          'function' == typeof U &&
-            u(
-              { global: !0, enumerable: !0, forced: !0 },
-              {
-                fetch: function(t) {
-                  return P(L, U.apply(f, arguments))
-                }
-              }
-            ))),
-        u({ global: !0, wrap: !0, forced: nt }, { Promise: L }),
-        v(L, B, !1, !0),
-        b(B),
-        (c = s(B)),
+        !a && 'function' == typeof l && z !== Object.prototype)
+      ) {
+        ;(i = z.then),
+          ot ||
+            (p(
+              z,
+              'then',
+              function(t, n) {
+                var e = this
+                return new G(function(t, n) {
+                  i.call(e, t, n)
+                }).then(t, n)
+              },
+              { unsafe: !0 }
+            ),
+            p(z, 'catch', U['catch'], { unsafe: !0 }))
+        try {
+          delete z.constructor
+        } catch (yt) {}
+        v && v(z, U)
+      }
+      u({ global: !0, wrap: !0, forced: ct }, { Promise: G }),
+        b(G, N, !1, !0),
+        y(N),
+        (c = s(N)),
         u(
-          { target: B, stat: !0, forced: nt },
+          { target: N, stat: !0, forced: ct },
           {
             reject: function(t) {
-              var n = V(this)
+              var n = K(this)
               return n.reject.call(void 0, t), n.promise
             }
           }
         ),
         u(
-          { target: B, stat: !0, forced: a || nt },
+          { target: N, stat: !0, forced: a || ct },
           {
             resolve: function(t) {
-              return P(a && this === c ? L : this, t)
+              return E(a && this === c ? G : this, t)
             }
           }
         ),
         u(
-          { target: B, stat: !0, forced: et },
+          { target: N, stat: !0, forced: it },
           {
             all: function(t) {
               var n = this,
-                e = V(n),
+                e = K(n),
                 r = e.resolve,
                 o = e.reject,
-                c = k(function() {
-                  var e = h(n.resolve),
+                c = _(function() {
+                  var e = g(n.resolve),
                     c = [],
                     i = 0,
                     u = 1
-                  m(t, function(t) {
+                  j(t, function(t) {
                     var a = i++,
                       f = !1
                     c.push(void 0),
@@ -1970,11 +1995,11 @@
             },
             race: function(t) {
               var n = this,
-                e = V(n),
+                e = K(n),
                 r = e.reject,
-                o = k(function() {
-                  var o = h(n.resolve)
-                  m(t, function(t) {
+                o = _(function() {
+                  var o = g(n.resolve)
+                  j(t, function(t) {
                     o.call(n, t).then(e.resolve, r)
                   })
                 })

@@ -3,7 +3,7 @@ import App from './App.vue'
 import './index.scss'
 // 全局导入
 import AxeUI from 'packages/index'
-console.log(AxeUI)
+// console.log(AxeUI)
 // 按需导入
 // import { AxeIcon } from 'packages/index'
 // console.log(AxeIcon)
