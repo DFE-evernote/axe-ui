@@ -4,6 +4,8 @@
   "description": "A Component Library for Vue3.js.",
   "author": "axe",
   "scripts": {
+    "bootstrap": "yarn || npm i",
+    "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
