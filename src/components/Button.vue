@@ -2,7 +2,7 @@
   <div class="area demo-button">
     <p class="demo-title">Button 按钮</p>
     <div class="btns">
-      <axe-button class="xiao-shi-tou">default</axe-button>
+      <axe-button class="xiao-shi-tou" @click="handleClick" :enableThrottle="true" :delay="1000">default</axe-button>
       <axe-button type="primary">primary</axe-button>
       <axe-button type="success">success</axe-button>
       <axe-button type="info">info</axe-button>
@@ -19,7 +19,16 @@
 
 <script>
 export default {
-  name: 'Button'
+  name: 'Button',
+  setup(){
+    const handleClick = () => {
+      console.log("throttle click")
+    }
+    
+    return {
+      handleClick
+    }
+  }
 }
 </script>
 

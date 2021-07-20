@@ -16,6 +16,8 @@
 <script lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
+import { throttle } from "../../utils"
+
 const typeArray = ['default', 'primary', 'success', 'info', 'warning', 'danger']
 const positionArray = ['left', 'right']
 
@@ -23,13 +25,17 @@ type IButtonType = PropType<
   'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
 >
 type IButtonPosi = PropType<'left' | 'right'>
+
 interface IButtonProps {
   type: string
   icon?: string
   loading: boolean
   position: string
-  disabled: boolean
+  disabled: boolean,
+  enableThrottle: boolean,
+  delay: number,
 }
+
 export default {
   name: 'AxeButton', // 重点是name命名，用于注册组件时使用name属性，也用于使用组件时标签名带有“axe-”的前缀，如<axe-button>
   props: {
@@ -65,7 +71,15 @@ export default {
         return true
       }
     },
-    disabled: Boolean
+    disabled: Boolean,
+    enableThrottle: {
+      type: Boolean,
+      default: false,
+    },
+    delay: {
+      type: Number,
+      default: 0
+    }
   },
   emits: ['click'],
   setup(props: IButtonProps, ctx: any) {
@@ -75,9 +89,13 @@ export default {
       props.icon && `axe-button-${props.position}`
     ])
 
-    const handleClick = (e: MouseEvent) => {
+    const baseClick = (e: MouseEvent) => {
       ctx.emit('click', e)
     }
+
+    const throttleClick = throttle(baseClick, props.delay)
+    const handleClick = props.enableThrottle ? throttleClick : baseClick
+
     return {
       classify,
       handleClick
